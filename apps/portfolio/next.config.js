@@ -8,10 +8,8 @@ const { composePlugins, withNx } = require('@nx/next');
  **/
 const nextConfig = {
   output: 'export',
-  // Use this to set Nx-specific options
-  // See: https://nx.dev/recipes/next/next-config-setup
-  nx: {},
-};
+  basePath: '/portfolio'
+}
 
 const plugins = [
   // Add more Next.js plugins to this list if needed.
