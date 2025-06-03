@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "serve": {
+      "command": "npx http-server out/",
+      "options": {
+        "cwd": "apps/portfolio/out"
+      },
+      "dependsOn": ["build"]
+    }
+  }
+}
