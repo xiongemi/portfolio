@@ -3,7 +3,7 @@
     "serve": {
       "command": "npx http-server out/",
       "options": {
-        "cwd": "apps/portfolio/out"
+        "cwd": "apps/portfolio"
       },
       "dependsOn": ["build"]
     }
