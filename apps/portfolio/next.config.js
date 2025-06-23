@@ -8,7 +8,8 @@ const { composePlugins, withNx } = require('@nx/next');
  **/
 const nextConfig = {
   output: 'export',
-  basePath: '/portfolio'
+  basePath: '/portfolio',
+  assetPrefix: '/portfolio'
 }
 
 const plugins = [
