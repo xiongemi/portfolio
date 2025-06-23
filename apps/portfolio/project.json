@@ -5,7 +5,8 @@
       "options": {
         "cwd": "apps/portfolio/portfolio"
       },
-      "dependsOn": ["build"]
+      "dependsOn": ["build"],
+      "continuous": true
     }
   }
 }
