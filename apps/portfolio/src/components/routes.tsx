@@ -4,4 +4,8 @@ export const routes = [
     name: 'Resume',
     url: '/resume',
   },
+  {
+    name: 'Blogs',
+    url: '/blogs',
+  },
 ];
