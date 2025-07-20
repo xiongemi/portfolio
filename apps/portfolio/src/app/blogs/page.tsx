@@ -24,7 +24,7 @@ export default function BlogsPage() {
           >
             <Link
               href={`/blogs/${post.slug}`}
-              className="block hover:opacity-80 transition-opacity"
+              className="no-underline block hover:opacity-80 transition-opacity"
             >
               <h2 className="text-2xl font-semibold mb-2 text-gray-900 dark:text-white">
                 {post.title}

@@ -22,7 +22,7 @@ export default function SharedLayout({
         </div>
         <button
           onClick={toggleTheme}
-          className="text-gray-700 hover:text-gray-900 dark:text-gray-200 dark:hover:text-white text-sm font-semibold focus:outline-none"
+          className="bg-inherit text-gray-700 hover:text-gray-900 dark:text-gray-200 dark:hover:text-white text-sm font-semibold focus:outline-none"
         >
           {theme === 'dark' ? 'Light Mode' : 'Dark Mode'}
         </button>

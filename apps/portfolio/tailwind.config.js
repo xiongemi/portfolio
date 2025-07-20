@@ -11,6 +11,9 @@ module.exports = {
     ),
     ...createGlobPatternsForDependencies(__dirname),
   ],
+  corePlugins: {
+    preflight: false,
+  },
   theme: {
     extend: {},
   },

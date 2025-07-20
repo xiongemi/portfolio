@@ -62,9 +62,9 @@ export default function Home() {
               <span className="text-black dark:text-yellow-400">:</span>
               <span> </span>
               <span className="text-red-500 dark:text-purple-400">
-                <a href="mailto:xiongemi@gmail.com">
-                  &quot;xiongemi@gmail.com 📧&quot;
-                </a>
+                &quot;
+                <a href="mailto:xiongemi@gmail.com">xiongemi@gmail.com</a>{' '}
+                📧&quot;
               </span>
               <span className="text-black dark:text-yellow-400">,</span>
             </div>
@@ -75,13 +75,15 @@ export default function Home() {
               <span className="text-black dark:text-yellow-400">:</span>
               <span> </span>
               <span className="text-red-500 dark:text-purple-400">
+                &quot;
                 <a
                   href="https://www.linkedin.com/in/xiongemi/"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  &quot;https://www.linkedin.com/in/xiongemi/ 👩🏻‍💼&quot;
-                </a>
+                  https://www.linkedin.com/in/xiongemi/
+                </a>{' '}
+                👩🏻‍💼&quot;
               </span>
               <span className="text-black dark:text-yellow-400">,</span>
             </div>
@@ -92,13 +94,15 @@ export default function Home() {
               <span className="text-black dark:text-yellow-400">:</span>
               <span> </span>
               <span className="text-red-500 dark:text-purple-400">
+                &quot;
                 <a
                   href="https://emilyxiong.medium.com/"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  &quot;https://emilyxiong.medium.com/ ✍🏻&quot;
-                </a>
+                  https://emilyxiong.medium.com/
+                </a>{' '}
+                ✍🏻&quot;
               </span>
               <span className="text-black dark:text-yellow-400">,</span>
             </div>
@@ -109,13 +113,15 @@ export default function Home() {
               <span className="text-black dark:text-yellow-400">:</span>
               <span> </span>
               <span className="text-red-500 dark:text-purple-400">
+                &quot;
                 <a
                   href="https://github.com/xiongemi"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  &quot;https://github.com/xiongemi 🗃️&quot;
-                </a>
+                  https://github.com/xiongemi
+                </a>{' '}
+                🗃️&quot;
               </span>
             </div>
           </div>

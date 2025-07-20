@@ -2,6 +2,7 @@ import { notFound } from 'next/navigation';
 import { getAllPosts, getPostBySlug } from '../../../lib/api';
 import { formatDate } from '../../../lib/utils';
 import { markdownToHtml } from '../../../lib/markdownToHtml';
+// import styles from './page.module.css';
 
 type Params = {
   params: {
@@ -53,7 +54,7 @@ export default async function BlogPost({ params }: Params) {
       </header>
 
       <div
-        className="prose prose-lg max-w-none dark:prose-invert prose-headings:text-gray-900 dark:prose-headings:text-gray-100 prose-p:text-gray-800 dark:prose-p:text-gray-200 prose-strong:text-gray-900 dark:prose-strong:text-gray-100 prose-code:text-gray-900 dark:prose-code:text-gray-100 prose-code:bg-gray-100 dark:prose-code:bg-gray-800 prose-pre:bg-gray-900 dark:prose-pre:bg-gray-800"
+        className={`prose prose-lg max-w-none dark:prose-invert prose-headings:text-gray-900 dark:prose-headings:text-gray-100 prose-p:text-gray-800 dark:prose-p:text-gray-200 prose-strong:text-gray-900 dark:prose-strong:text-gray-100 prose-code:text-gray-900 dark:prose-code:text-gray-100 prose-code:bg-gray-100 dark:prose-code:bg-gray-800 prose-pre:bg-gray-900 dark:prose-pre:bg-gray-800`}
         dangerouslySetInnerHTML={{ __html: content }}
       />
     </article>
