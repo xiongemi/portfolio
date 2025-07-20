@@ -1,129 +1,73 @@
 'use client';
 
-import React from 'react';
+import React, { useMemo, useRef } from 'react';
+import { JsonField } from '../components/JsonField';
+import { useWindowSize } from '../lib/useWindowSize';
 
 export default function Home() {
+  const contentRef = useRef<HTMLDivElement>(null);
+  const { width, height } = useWindowSize(contentRef);
+  const lineCount = useMemo(
+    () => Math.floor((height || 800) / 32) + 2,
+    [height]
+  );
+
   return (
     <div className="p-6 font-mono text-xl leading-relaxed">
       <div className="flex">
         <div className="text-gray-700 dark:text-gray-300 select-none text-right mr-2">
-          <div>1</div>
-          <div>2</div>
-          <div>3</div>
-          <div>4</div>
-          <div>5</div>
-          <div>6</div>
-          <div>7</div>
-          <div>8</div>
-          <div>9</div>
-          <div>10</div>
+          {Array.from({ length: lineCount }, (_, i) => i + 1).map((i) => (
+            <div key={i}>{i}</div>
+          ))}
         </div>
 
         <div className="flex-1">
           <div className="text-blue-500 dark:text-yellow-400">{'{'}</div>
-          <div className="ml-10 break-all">
-            <div>
-              <span className="text-blue-800 dark:text-cyan-400">
-                &quot;name&quot;
-              </span>
-              <span className="text-black dark:text-yellow-400">:</span>
-              <span> </span>
-              <span className="text-red-500 dark:text-purple-400">
-                &quot;Emily Xiong 📇&quot;
-              </span>
-              <span className="text-black dark:text-yellow-400">,</span>
-            </div>
-            <div>
-              <span className="text-blue-800 dark:text-cyan-400">
-                &quot;location&quot;
-              </span>
-              <span className="text-black dark:text-yellow-400">:</span>
-              <span> </span>
-              <span className="text-red-500 dark:text-purple-400">
-                &quot;Toronto, Canada 📍&quot;
-              </span>
-              <span className="text-black dark:text-yellow-400">,</span>
-            </div>
-            <div className=" flex flex-wrap min-w-0">
-              <span className="text-blue-800 dark:text-cyan-400">
-                &quot;title&quot;
-              </span>
-              <span className="text-black dark:text-yellow-400">:</span>
-              <span> </span>
-              <span className="text-red-500 dark:text-purple-400">
-                &quot;Software Engineer 👩‍💻&quot;
-              </span>
-              <span className="text-black dark:text-yellow-400">,</span>
-            </div>
-            <div>
-              <span className="text-blue-800 dark:text-cyan-400">
-                &quot;email&quot;
-              </span>
-              <span className="text-black dark:text-yellow-400">:</span>
-              <span> </span>
-              <span className="text-red-500 dark:text-purple-400">
-                &quot;
-                <a href="mailto:xiongemi@gmail.com">xiongemi@gmail.com</a>{' '}
-                📧&quot;
-              </span>
-              <span className="text-black dark:text-yellow-400">,</span>
-            </div>
-            <div>
-              <span className="text-blue-800 dark:text-cyan-400">
-                &quot;linkedin&quot;
-              </span>
-              <span className="text-black dark:text-yellow-400">:</span>
-              <span> </span>
-              <span className="text-red-500 dark:text-purple-400">
-                &quot;
-                <a
-                  href="https://www.linkedin.com/in/xiongemi/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  https://www.linkedin.com/in/xiongemi/
-                </a>{' '}
-                👩🏻‍💼&quot;
-              </span>
-              <span className="text-black dark:text-yellow-400">,</span>
-            </div>
-            <div>
-              <span className="text-blue-800 dark:text-cyan-400">
-                &quot;blog&quot;
-              </span>
-              <span className="text-black dark:text-yellow-400">:</span>
-              <span> </span>
-              <span className="text-red-500 dark:text-purple-400">
-                &quot;
-                <a
-                  href="https://emilyxiong.medium.com/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  https://emilyxiong.medium.com/
-                </a>{' '}
-                ✍🏻&quot;
-              </span>
-              <span className="text-black dark:text-yellow-400">,</span>
-            </div>
-            <div>
-              <span className="text-blue-800 dark:text-cyan-400">
-                &quot;github&quot;
-              </span>
-              <span className="text-black dark:text-yellow-400">:</span>
-              <span> </span>
-              <span className="text-red-500 dark:text-purple-400">
-                &quot;
-                <a
-                  href="https://github.com/xiongemi"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  https://github.com/xiongemi
-                </a>{' '}
-                🗃️&quot;
-              </span>
-            </div>
+          <div ref={contentRef} className="ml-10 break-all">
+            <JsonField fieldName="name">Emily Xiong 📇</JsonField>
+            <JsonField fieldName="location">Toronto, Canada 📍</JsonField>
+            <JsonField fieldName="title">Software Engineer 👩‍💻</JsonField>
+            <JsonField fieldName="description">
+              <>
+                I&apos;m a frontend developer based in Toronto who loves
+                building with React and React Native. I speak at the occasional
+                meetup, and enjoy sharing things I’ve learned (usually the hard
+                way). This blog is my little corner of the internet.
+              </>
+            </JsonField>
+            <JsonField fieldName="email">
+              <a href="mailto:xiongemi@gmail.com">xiongemi@gmail.com</a> 📧
+            </JsonField>
+            <JsonField fieldName="linkedin">
+              <a
+                href="https://www.linkedin.com/in/xiongemi/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                https://www.linkedin.com/in/xiongemi/
+              </a>{' '}
+              👩🏻‍💼
+            </JsonField>
+            <JsonField fieldName="blog">
+              <a
+                href="https://emilyxiong.medium.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                https://emilyxiong.medium.com/
+              </a>{' '}
+              ✍🏻
+            </JsonField>
+            <JsonField fieldName="github">
+              <a
+                href="https://github.com/xiongemi"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                https://github.com/xiongemi
+              </a>{' '}
+              🗃️
+            </JsonField>
           </div>
           <div className="text-blue-500 dark:text-yellow-400">{'}'}</div>
         </div>
