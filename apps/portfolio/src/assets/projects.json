@@ -1,0 +1,25 @@
+{
+  "projects": [
+    {
+      "name": "Nx React Native Monorepo Jokes",
+      "description": "A React Native monorepo built with Nx workspace showcasing jokes app with shared libraries and efficient development workflow.",
+      "githubUrl": "https://github.com/xiongemi/nx-react-native-monorepo-jokes",
+      "technologies": ["React Native", "Nx", "TypeScript", "Monorepo"],
+      "websiteUrl": "https://xiongemi.github.io/nx-react-native-monorepo-jokes/"
+    },
+    {
+      "name": "Nx Expo Poetry",
+      "description": "An Expo React Native app built with Nx workspace for poetry sharing and discovery with modern mobile development practices.",
+      "githubUrl": "https://github.com/xiongemi/nx-expo-poetry",
+      "technologies": ["Expo", "React Native", "Nx", "TypeScript"],
+      "websiteUrl": "https://xiongemi.github.io/nx-expo-poetry/"
+    },
+    {
+      "name": "Superhero Search Engine",
+      "description": "A web application for searching and discovering superheroes with detailed information and interactive features.",
+      "githubUrl": "https://github.com/xiongemi/superhero-search-engine",
+      "technologies": ["React", "JavaScript", "API Integration", "CSS"],
+      "websiteUrl": "https://xiongemi.github.io/superhero-search-engine/"
+    }
+  ]
+}

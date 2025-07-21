@@ -6,7 +6,7 @@ import { useWindowSize } from '../lib/useWindowSize';
 
 export default function Home() {
   const contentRef = useRef<HTMLDivElement>(null);
-  const { width, height } = useWindowSize(contentRef);
+  const { height } = useWindowSize(contentRef);
   const lineCount = useMemo(
     () => Math.floor((height || 800) / 32) + 2,
     [height]
