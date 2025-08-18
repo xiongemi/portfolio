@@ -10,7 +10,7 @@ export const routes = [
   },
   {
     name: 'Resume',
-    url: '/resume.pdf',
+    url: '/portfolio/resume.pdf',
     isExternal: true,
   },
 ];
