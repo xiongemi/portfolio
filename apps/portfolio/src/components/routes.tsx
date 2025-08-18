@@ -8,4 +8,9 @@ export const routes = [
     name: 'Projects',
     url: '/projects',
   },
+  {
+    name: 'Resume',
+    url: '/resume.pdf',
+    isExternal: true,
+  },
 ];

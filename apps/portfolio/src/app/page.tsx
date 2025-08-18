@@ -7,10 +7,10 @@ import { useWindowSize } from '../lib/useWindowSize';
 export default function Home() {
   const contentRef = useRef<HTMLDivElement>(null);
   const { height } = useWindowSize(contentRef);
-  const lineCount = useMemo(
-    () => Math.floor((height || 800) / 32) + 2,
-    [height]
-  );
+  const lineCount = useMemo(() => {
+    if (!height) return 0;
+    return Math.floor((height || 800) / 32) + 2;
+  }, [height]);
 
   return (
     <div className="p-6 font-mono text-xl leading-relaxed">
