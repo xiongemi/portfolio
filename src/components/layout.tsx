@@ -12,7 +12,7 @@ export default function SharedLayout({
   const { theme, toggleTheme } = useTheme();
 
   return (
-    <div className="flex items-center justify-center min-h-screen w-full p-4 md:p-8">
+    <div className="flex items-start justify-center min-h-screen w-full p-4 md:p-8">
       <div className="glass shadow-2xl rounded-2xl overflow-hidden w-full lg:w-4/5 xl:w-2/3 transition-all duration-500 hover:shadow-blue-500/10">
         <div className="bg-white/10 dark:bg-black/20 px-6 py-4 flex items-center space-x-2 justify-between border-b border-white/10">
           <div className="flex items-center space-x-2">
