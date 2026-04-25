@@ -4,8 +4,7 @@ import ThemeWrapper from '../components/ThemeWrapper';
 
 export const metadata = {
   title: "Welcome to Emily Xiong's Portfolio",
-  description:
-    "This is Emily Xiong's portfolio, a software engineer based in Toronto, Canada.",
+  description: "This is Emily Xiong's portfolio, a software engineer based in Toronto, Canada.",
 };
 
 export default function RootLayout({

@@ -31,11 +31,8 @@ export default function SharedLayout({
           </button>
         </div>
         <EditorHeader />
-        <div className="p-2">
-          {children}
-        </div>
+        <div className="p-2">{children}</div>
       </div>
     </div>
   );
 }
-

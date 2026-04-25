@@ -30,7 +30,7 @@ export function useWindowSize(elementRef?: RefObject<HTMLElement | null>, delay 
 
   const debouncedUpdateSize = useCallback(() => {
     let timeoutId: NodeJS.Timeout;
-    
+
     return () => {
       clearTimeout(timeoutId);
       timeoutId = setTimeout(updateSize, delay);

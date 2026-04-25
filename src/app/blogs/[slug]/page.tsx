@@ -44,9 +44,7 @@ export default async function BlogPost({ params }: Params) {
   return (
     <article className="max-w-4xl mx-auto p-8 text-gray-900 dark:text-gray-100">
       <header className="mb-8">
-        <h1 className="text-4xl font-bold mb-4 text-gray-900 dark:text-white">
-          {post.title}
-        </h1>
+        <h1 className="text-4xl font-bold mb-4 text-gray-900 dark:text-white">{post.title}</h1>
         <div className="flex items-center gap-4 text-gray-600 dark:text-gray-300">
           <time>{formatDate(post.date)}</time>
           {post.author && <span>by {post.author}</span>}

@@ -17,7 +17,9 @@ export default function Home() {
       <div className="flex">
         <div className="text-gray-400 dark:text-gray-600 select-none text-right mr-6 border-r border-white/5 pr-4 hidden sm:block">
           {Array.from({ length: lineCount }, (_, i) => i + 1).map((i) => (
-            <div key={i} className="h-8">{i}</div>
+            <div key={i} className="h-8">
+              {i}
+            </div>
           ))}
         </div>
 
@@ -29,14 +31,19 @@ export default function Home() {
             <JsonField fieldName="title">Software Engineer 👩‍💻</JsonField>
             <JsonField fieldName="description">
               <>
-                I&apos;m a frontend developer based in Toronto who loves
-                building with React and React Native. I speak at the occasional
-                meetup, and enjoy sharing things I’ve learned (usually the hard
-                way). This portfolio is my little corner of the internet.
+                I&apos;m a frontend developer based in Toronto who loves building with React and
+                React Native. I speak at the occasional meetup, and enjoy sharing things I’ve
+                learned (usually the hard way). This portfolio is my little corner of the internet.
               </>
             </JsonField>
             <JsonField fieldName="email">
-              <a href="mailto:xiongemi@gmail.com" className="underline decoration-blue-500/30 hover:decoration-blue-500 transition-all">xiongemi@gmail.com</a> 📧
+              <a
+                href="mailto:xiongemi@gmail.com"
+                className="underline decoration-blue-500/30 hover:decoration-blue-500 transition-all"
+              >
+                xiongemi@gmail.com
+              </a>{' '}
+              📧
             </JsonField>
             <JsonField fieldName="linkedin">
               <a
@@ -78,4 +85,3 @@ export default function Home() {
     </div>
   );
 }
-

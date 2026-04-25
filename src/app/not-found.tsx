@@ -10,8 +10,8 @@ export default function NotFound() {
         <p className="text-gray-600 dark:text-gray-400 mb-8 max-w-md mx-auto">
           The page you're looking for doesn't exist or has been moved.
         </p>
-        <Link 
-          href="/" 
+        <Link
+          href="/"
           className="inline-block bg-blue-600 dark:bg-blue-500 text-white px-6 py-3 rounded-lg hover:bg-blue-700 dark:hover:bg-blue-600 transition-colors no-underline"
         >
           Go Home
