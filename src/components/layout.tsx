@@ -20,7 +20,7 @@ export default function SharedLayout({
             <div className="w-3 h-3 bg-yellow-500 rounded-full shadow-inner"></div>
             <div className="w-3 h-3 bg-green-500 rounded-full shadow-inner"></div>
           </div>
-          <div className="text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-widest hidden sm:block">
+          <div className="text-xs font-semibold text-gray-700 dark:text-gray-400 uppercase tracking-widest hidden sm:block">
             portfolio-editor v1.0
           </div>
           <button

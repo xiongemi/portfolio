@@ -2,15 +2,16 @@ export const routes = [
   { name: 'Home', url: '/' },
   {
     name: 'Blogs',
-    url: '/blogs',
+    url: 'https://medium.com/@emilyxiong',
+    isExternal: true,
   },
   {
     name: 'Projects',
-    url: '/projects',
+    url: 'https://apps.apple.com/us/developer/hang-xiong/id999558225',
+    isExternal: true,
   },
   {
     name: 'Resume',
-    url: '/portfolio/resume.pdf',
-    isExternal: true,
+    url: '/resume',
   },
 ];

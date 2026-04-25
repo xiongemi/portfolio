@@ -15,7 +15,7 @@ export default function Home() {
   return (
     <div className="p-8 font-mono text-lg md:text-xl leading-relaxed animate-in fade-in duration-700">
       <div className="flex">
-        <div className="text-gray-400 dark:text-gray-600 select-none text-right mr-6 border-r border-white/5 pr-4 hidden sm:block">
+        <div className="text-gray-500 dark:text-gray-600 select-none text-right mr-6 border-r border-black/10 dark:border-white/5 pr-4 hidden sm:block">
           {Array.from({ length: lineCount }, (_, i) => i + 1).map((i) => (
             <div key={i} className="h-8">
               {i}

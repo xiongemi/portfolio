@@ -53,12 +53,12 @@ jobs:
             ${{ runner.os }}-nextjs-${{ hashFiles('**/package-lock.json') }}-
 
       - name: Build with Next.js
-        run: npx nx build portfolio
+        run: npm run build
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: ./apps/portfolio/portfolio
+          path: ./out
 
   deploy:
     environment:
