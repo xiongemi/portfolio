@@ -1,6 +1,10 @@
 export const routes = [
   { name: 'Home', url: '/' },
   {
+    name: 'Resume',
+    url: '/resume',
+  },
+  {
     name: 'Blogs',
     url: 'https://medium.com/@emilyxiong',
     isExternal: true,
@@ -9,9 +13,5 @@ export const routes = [
     name: 'Projects',
     url: 'https://apps.apple.com/us/developer/hang-xiong/id999558225',
     isExternal: true,
-  },
-  {
-    name: 'Resume',
-    url: '/resume',
   },
 ];

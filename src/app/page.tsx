@@ -6,7 +6,7 @@ import { useWindowSize } from '../lib/useWindowSize';
 
 export default function Home() {
   const contentRef = useRef<HTMLDivElement>(null);
-  const { height } = useWindowSize(contentRef);
+  const { width, height } = useWindowSize(contentRef);
   const lineCount = useMemo(() => {
     if (!height) return 0;
     return Math.floor((height || 800) / 32) + 2;
@@ -23,9 +23,9 @@ export default function Home() {
           ))}
         </div>
 
-        <div className="flex-1">
+        <div ref={contentRef} className="flex-1">
           <div className="text-blue-500 dark:text-yellow-500 font-bold mb-2">{'{'}</div>
-          <div ref={contentRef} className="ml-4 md:ml-8 space-y-1">
+          <div className="ml-4 md:ml-8 space-y-1 break-all">
             <JsonField fieldName="name">Emily Xiong 📇</JsonField>
             <JsonField fieldName="location">Toronto, Canada 📍</JsonField>
             <JsonField fieldName="title">Software Engineer 👩‍💻</JsonField>
@@ -67,7 +67,7 @@ export default function Home() {
               </a>{' '}
               ✍🏻
             </JsonField>
-            <JsonField fieldName="github" isLast>
+            <JsonField fieldName="github">
               <a
                 href="https://github.com/xiongemi"
                 target="_blank"
@@ -77,6 +77,9 @@ export default function Home() {
                 https://github.com/xiongemi
               </a>{' '}
               🗃️
+            </JsonField>
+            <JsonField fieldName="windowSize" isLast>
+              {Math.round(width)}px x {Math.round(height)}px
             </JsonField>
           </div>
           <div className="text-blue-500 dark:text-yellow-500 font-bold mt-2">{'}'}</div>
