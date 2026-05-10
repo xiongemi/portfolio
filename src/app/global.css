@@ -27,9 +27,9 @@ html {
 body {
   background-color: var(--background);
   color: var(--foreground);
-  background-image: radial-gradient(at 0% 0%, hsla(253, 16%, 7%, 1) 0, transparent 50%),
-    radial-gradient(at 50% 0%, hsla(225, 39%, 10%, 1) 0, transparent 50%),
-    radial-gradient(at 100% 0%, hsla(339, 49%, 10%, 1) 0, transparent 50%);
+  background-image: radial-gradient(at 0% 0%, rgb(237, 163, 227) 0, transparent 50%),
+    radial-gradient(at 50% 0%, rgb(237, 163, 227) 0, transparent 50%),
+    radial-gradient(at 100% 0%, rgb(237, 163, 227) 0, transparent 50%);
   background-attachment: fixed;
   min-height: 100vh;
   margin: 0;

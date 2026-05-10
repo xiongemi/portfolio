@@ -9,11 +9,11 @@ export default function Home() {
   const { width, height } = useWindowSize(contentRef);
   const lineCount = useMemo(() => {
     if (!height) return 0;
-    return Math.floor((height || 800) / 32) + 2;
+    return Math.floor((height || 800) / 32);
   }, [height]);
 
   return (
-    <div className="p-8 font-mono text-lg md:text-xl leading-relaxed animate-in fade-in duration-700">
+    <div className="md:p-8 font-mono text-lg md:text-xl leading-relaxed animate-in fade-in duration-700">
       <div className="flex">
         <div className="text-gray-500 dark:text-gray-600 select-none text-right mr-6 border-r border-black/10 dark:border-white/5 pr-4 hidden sm:block">
           {Array.from({ length: lineCount }, (_, i) => i + 1).map((i) => (
@@ -23,9 +23,9 @@ export default function Home() {
           ))}
         </div>
 
-        <div ref={contentRef} className="flex-1">
+        <div ref={contentRef} className="flex-1 min-w-0">
           <div className="text-blue-500 dark:text-yellow-500 font-bold mb-2">{'{'}</div>
-          <div className="ml-4 md:ml-8 space-y-1 break-all">
+          <div className="ml-4 md:ml-8 space-y-1 break-words">
             <JsonField fieldName="name">Emily Xiong 📇</JsonField>
             <JsonField fieldName="location">Toronto, Canada 📍</JsonField>
             <JsonField fieldName="title">Software Engineer 👩‍💻</JsonField>
@@ -67,7 +67,7 @@ export default function Home() {
               </a>{' '}
               ✍🏻
             </JsonField>
-            <JsonField fieldName="github">
+            <JsonField fieldName="github" isLast>
               <a
                 href="https://github.com/xiongemi"
                 target="_blank"
@@ -77,9 +77,6 @@ export default function Home() {
                 https://github.com/xiongemi
               </a>{' '}
               🗃️
-            </JsonField>
-            <JsonField fieldName="windowSize" isLast>
-              {Math.round(width)}px x {Math.round(height)}px
             </JsonField>
           </div>
           <div className="text-blue-500 dark:text-yellow-500 font-bold mt-2">{'}'}</div>
