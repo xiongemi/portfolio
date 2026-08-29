@@ -57,16 +57,16 @@ export const metadata: Metadata = {
   },
 };
 
+// Not keyed off prefers-color-scheme: the page renders dark regardless of the OS
+// setting, so a light theme-color would mismatch the browser chrome.
 export const viewport: Viewport = {
-  themeColor: [
-    { media: '(prefers-color-scheme: light)', color: '#ffffff' },
-    { media: '(prefers-color-scheme: dark)', color: '#020617' },
-  ],
+  themeColor: '#020617',
 };
 
 // Runs before first paint so the page never flashes the wrong theme. Dark is the
-// default identity of this site; an explicit choice or an OS light preference wins.
-const NO_FLASH_THEME = `try{var s=localStorage.getItem('theme');document.documentElement.classList.toggle('dark',s?s==='dark':!matchMedia('(prefers-color-scheme: light)').matches)}catch(e){document.documentElement.classList.add('dark')}`;
+// default identity of this site; only an explicit choice from the toggle wins,
+// so an OS light preference does not pull first-time visitors out of dark.
+const NO_FLASH_THEME = `try{document.documentElement.classList.toggle('dark',localStorage.getItem('theme')!=='light')}catch(e){document.documentElement.classList.add('dark')}`;
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (

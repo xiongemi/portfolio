@@ -13,6 +13,7 @@
 }
 
 :root {
+  color-scheme: light;
   --background: #ffffff;
   --foreground: #020617;
   --glass-bg: rgba(255, 255, 255, 0.8);
@@ -20,6 +21,7 @@
 }
 
 .dark {
+  color-scheme: dark;
   --background: #020617;
   --foreground: #f8fafc;
   --glass-bg: rgba(15, 23, 42, 0.7);
