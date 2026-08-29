@@ -5,7 +5,7 @@ import { useMemo, useState } from 'react';
 import appsData from '../../assets/apps.json';
 import ossData from '../../assets/projects.json';
 
-const { apps, developerUrl } = appsData;
+const { apps, appStoreDeveloperUrl, playDeveloperUrl } = appsData;
 const { projects: oss } = ossData;
 
 // `next/image` with `unoptimized: true` passes src straight through, so public/
@@ -13,6 +13,10 @@ const { projects: oss } = ossData;
 const BASE_PATH = process.env.NEXT_PUBLIC_BASE_PATH ?? '';
 
 const CATEGORIES = ['All', ...Array.from(new Set(apps.map((a) => a.category)))];
+
+const STORE_LABELS = { ios: 'App Store', android: 'Google Play' } as const;
+
+const androidCount = apps.filter((a) => 'android' in a.stores).length;
 
 export default function ProjectsPage() {
   const [category, setCategory] = useState('All');
@@ -39,13 +43,16 @@ export default function ProjectsPage() {
             <br />
             {' * '}
           </span>
-          Ten iOS apps on the App Store, all free, all shipped solo.
+          {apps.length} apps on the App Store, {androidCount} of them also on Google Play.
           <br />
           <span className="text-green-700 dark:text-emerald-400">{' * '}</span>
-          Most of them are tools for people navigating a new country —
+          All free, all shipped solo.
           <br />
           <span className="text-green-700 dark:text-emerald-400">{' * '}</span>
-          citizenship exams, language tests, government paperwork.
+          Most are study tools for people sitting citizenship and language exams
+          <br />
+          <span className="text-green-700 dark:text-emerald-400">{' * '}</span>
+          in a country they have just moved to.
           <br />
           <span className="text-green-700 dark:text-emerald-400">{' * '}</span>
           The rest are local-first utilities that keep your data on your phone.
@@ -58,8 +65,8 @@ export default function ProjectsPage() {
       <dl className="grid grid-cols-2 md:grid-cols-4 gap-px mb-12 font-mono text-center bg-black/10 dark:bg-white/10 border border-black/10 dark:border-white/10 rounded-lg overflow-hidden">
         {[
           { k: 'apps shipped', v: String(apps.length) },
-          { k: 'on the App Store', v: 'All free' },
-          { k: 'built & shipped by', v: 'One person' },
+          { k: 'also on Android', v: String(androidCount) },
+          { k: 'price, every one', v: 'Free' },
           { k: 'account required', v: 'None' },
         ].map(({ k, v }) => (
           <div key={k} className="flex flex-col-reverse bg-white/40 dark:bg-black/30 px-3 py-5">
@@ -74,7 +81,9 @@ export default function ProjectsPage() {
       {/* iOS apps */}
       <section className="mb-16">
         <div className="flex flex-wrap items-baseline justify-between gap-4 mb-6">
-          <h2 className="text-xs uppercase tracking-[0.3em] text-blue-500 font-bold">iOS Apps</h2>
+          <h2 className="text-xs uppercase tracking-[0.3em] text-blue-500 font-bold">
+            Published Apps
+          </h2>
           <fieldset className="flex flex-wrap gap-2 border-0 p-0 m-0">
             <legend className="sr-only">Filter apps by category</legend>
             {CATEGORIES.map((c) => {
@@ -105,68 +114,82 @@ export default function ProjectsPage() {
 
         <ul className="grid gap-4 md:grid-cols-2">
           {visible.map((app) => (
-            <li key={app.slug}>
-              <a
-                href={app.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group h-full flex gap-4 p-5 rounded-xl border border-black/10 dark:border-white/10 bg-white/40 dark:bg-white/[0.03] hover:border-blue-500/40 hover:bg-white/60 dark:hover:bg-white/[0.06] transition-colors"
-              >
-                <Image
-                  src={`${BASE_PATH}${app.icon}`}
-                  alt=""
-                  width={256}
-                  height={256}
-                  className="w-14 h-14 md:w-16 md:h-16 rounded-xl shrink-0 shadow-sm"
-                />
-                <div className="min-w-0">
-                  <h3 className="font-bold text-gray-900 dark:text-gray-100 group-hover:text-blue-500 transition-colors leading-tight">
-                    {app.name}
-                    {'nameAlt' in app && app.nameAlt ? (
-                      <span className="ml-2 font-normal text-sm text-gray-500 dark:text-gray-500">
-                        {app.nameAlt}
-                      </span>
-                    ) : null}
-                  </h3>
-                  <p className="text-sm text-gray-700 dark:text-gray-300 mt-1.5 leading-snug">
-                    {app.tagline}
-                  </p>
-                  <p className="text-sm text-gray-600 dark:text-gray-400 mt-2 leading-relaxed">
-                    {app.detail}
-                  </p>
-                  <p className="flex flex-wrap items-center gap-x-2 gap-y-1 mt-3 font-mono text-[11px] text-gray-500 dark:text-gray-500">
-                    <span className="px-2 py-0.5 rounded-full bg-black/5 dark:bg-white/10">
-                      {app.category}
+            <li
+              key={app.slug}
+              className="h-full flex gap-4 p-5 rounded-xl border border-black/10 dark:border-white/10 bg-white/40 dark:bg-white/[0.03] hover:border-blue-500/40 transition-colors"
+            >
+              <Image
+                src={`${BASE_PATH}${app.icon}`}
+                alt=""
+                width={256}
+                height={256}
+                className="w-14 h-14 md:w-16 md:h-16 rounded-xl shrink-0 shadow-sm"
+              />
+              <div className="min-w-0 flex flex-col">
+                <h3 className="font-bold text-gray-900 dark:text-gray-100 leading-tight">
+                  {app.name}
+                  {'nameAlt' in app && app.nameAlt ? (
+                    <span className="ml-2 font-normal text-sm text-gray-500 dark:text-gray-500">
+                      {app.nameAlt}
                     </span>
-                    <span>v{app.version}</span>
-                    <span aria-hidden="true">·</span>
-                    <span>
-                      updated{' '}
-                      <time dateTime={app.updated}>
-                        {new Date(app.updated).toLocaleDateString('en-CA', {
-                          year: 'numeric',
-                          month: 'short',
-                        })}
-                      </time>
-                    </span>
-                    <span className="text-blue-500 group-hover:underline ml-auto whitespace-nowrap">
-                      App Store ↗
-                    </span>
-                  </p>
-                </div>
-              </a>
+                  ) : null}
+                </h3>
+                <p className="text-sm text-gray-700 dark:text-gray-300 mt-1.5 leading-snug">
+                  {app.tagline}
+                </p>
+                <p className="text-sm text-gray-600 dark:text-gray-400 mt-2 leading-relaxed">
+                  {app.detail}
+                </p>
+                <p className="flex flex-wrap items-center gap-x-2 gap-y-1 mt-3 font-mono text-[11px] text-gray-500 dark:text-gray-500">
+                  <span className="px-2 py-0.5 rounded-full bg-black/5 dark:bg-white/10">
+                    {app.category}
+                  </span>
+                  <span>v{app.version}</span>
+                  <span aria-hidden="true">·</span>
+                  <span>
+                    updated{' '}
+                    <time dateTime={app.updated}>
+                      {new Date(app.updated).toLocaleDateString('en-CA', {
+                        year: 'numeric',
+                        month: 'short',
+                      })}
+                    </time>
+                  </span>
+                </p>
+                <p className="flex flex-wrap gap-x-4 gap-y-1 mt-3 pt-3 border-t border-black/5 dark:border-white/5 font-mono text-xs">
+                  {Object.entries(app.stores).map(([store, url]) => (
+                    <a
+                      key={store}
+                      href={url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-blue-500 hover:underline"
+                    >
+                      {STORE_LABELS[store as keyof typeof STORE_LABELS]} ↗
+                    </a>
+                  ))}
+                </p>
+              </div>
             </li>
           ))}
         </ul>
 
-        <p className="mt-6 font-mono text-xs text-gray-500 dark:text-gray-500">
+        <p className="flex flex-wrap gap-x-6 gap-y-1 mt-6 font-mono text-xs text-gray-500 dark:text-gray-500">
           <a
-            href={developerUrl}
+            href={appStoreDeveloperUrl}
             target="_blank"
             rel="noopener noreferrer"
             className="hover:text-blue-500 transition-colors underline decoration-blue-500/30"
           >
-            → See all apps on my App Store developer page
+            → All apps on the App Store
+          </a>
+          <a
+            href={playDeveloperUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:text-blue-500 transition-colors underline decoration-blue-500/30"
+          >
+            → All apps on Google Play
           </a>
         </p>
       </section>

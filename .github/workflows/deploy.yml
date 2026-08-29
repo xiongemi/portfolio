@@ -31,7 +31,7 @@ jobs:
       - name: Install Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 22
+          node-version-file: '.nvmrc'
           cache: 'npm'
 
       - name: Install dependencies
@@ -46,8 +46,10 @@ jobs:
         with:
           path: |
             .next/cache
-          # Generate a new cache whenever packages or source files change.
-          key: ${{ runner.os }}-nextjs-${{ hashFiles('**/package-lock.json') }}-${{ hashFiles('**.[jt]s', '**.[jt]sx') }}
+          # Bust the cache when dependencies or anything under src/ changes.
+          # (The previous '**.[jt]s' pattern matched only root-level files, so
+          # component edits silently reused a stale cache.)
+          key: ${{ runner.os }}-nextjs-${{ hashFiles('**/package-lock.json') }}-${{ hashFiles('src/**', '*.js', 'tsconfig.json') }}
           # If source files changed but packages didn't, rebuild from a prior cache.
           restore-keys: |
             ${{ runner.os }}-nextjs-${{ hashFiles('**/package-lock.json') }}-

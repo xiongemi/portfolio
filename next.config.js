@@ -20,9 +20,20 @@ const siteUrl =
     ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
     : 'http://localhost:3000');
 
+// Running both hosts means the same content is live at two public URLs. Search
+// engines treat that as duplicate content and split ranking between them, so set
+// NEXT_PUBLIC_CANONICAL_URL to whichever host is the real one and both builds will
+// point their canonical + Open Graph tags there. Left unset, each host
+// self-canonicalises (fine while only one is public).
+const canonicalUrl = process.env.NEXT_PUBLIC_CANONICAL_URL || siteUrl;
+
 const nextConfig = {
   output: 'export',
-  env: { NEXT_PUBLIC_SITE_URL: siteUrl, NEXT_PUBLIC_BASE_PATH: basePath },
+  env: {
+    NEXT_PUBLIC_SITE_URL: siteUrl,
+    NEXT_PUBLIC_BASE_PATH: basePath,
+    NEXT_PUBLIC_CANONICAL_URL: canonicalUrl,
+  },
   basePath,
   // Required by `output: 'export'` — there is no server to run the image
   // optimizer. Icons are pre-sized at build time instead.

@@ -4,11 +4,13 @@ import SharedLayout from '../components/layout';
 import ThemeWrapper from '../components/ThemeWrapper';
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'http://localhost:3000';
+/** Where search engines should be pointed — see NEXT_PUBLIC_CANONICAL_URL in next.config.js. */
+const canonicalUrl = process.env.NEXT_PUBLIC_CANONICAL_URL ?? siteUrl;
 
 // Absolute, because a basePath-mounted site (GitHub Pages) resolves a leading-slash
 // path against the origin and would drop the /portfolio prefix.
 const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? '';
-const ogImage = `${siteUrl}/og.png`;
+const ogImage = `${canonicalUrl}/og.png`;
 const ogAlt = 'Emily Xiong — Software Engineer in Toronto';
 
 const description =
@@ -35,7 +37,7 @@ export const metadata: Metadata = {
     'TypeScript',
     'iOS developer',
   ],
-  alternates: { canonical: siteUrl },
+  alternates: { canonical: canonicalUrl },
   icons: { icon: `${basePath}/favicon.ico` },
   robots: { index: true, follow: true },
   openGraph: {
@@ -43,7 +45,7 @@ export const metadata: Metadata = {
     siteName: "Emily Xiong's Portfolio",
     title: 'Emily Xiong — Software Engineer in Toronto',
     description,
-    url: siteUrl,
+    url: canonicalUrl,
     locale: 'en_CA',
     images: [{ url: ogImage, width: 1200, height: 630, alt: ogAlt }],
   },

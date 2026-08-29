@@ -64,9 +64,23 @@ on both hosts. The only thing that differs is `basePath`, which is set per build
 `.github/workflows/deploy.yml` sets `DEPLOY_TARGET=gh-pages`; Vercel does not set
 it, so Vercel builds at the root. Nothing needs to change to keep both live.
 
-Set `NEXT_PUBLIC_SITE_URL` in the Vercel project once a custom domain is attached —
-it drives canonical URLs, `sitemap.xml`, and Open Graph tags. Without it, Vercel
-falls back to the auto-assigned production domain.
+### Running both hosts at once
+
+Both deployments can be live simultaneously — nothing about them conflicts. Vercel
+builds from the repo on push and GitHub Pages builds from the workflow; each
+produces its own artifact with the right `basePath`.
+
+The one thing to handle is SEO: identical content on two public URLs is duplicate
+content, and search engines split ranking between them. Pick whichever host is the
+real one and set `NEXT_PUBLIC_CANONICAL_URL` to it in **both** environments — every
+build then points its canonical and Open Graph tags at that host, no matter where it
+is served from. Left unset, each host self-canonicalises.
+
+| Variable | Where | Purpose |
+| --- | --- | --- |
+| `NEXT_PUBLIC_SITE_URL` | Vercel | Origin for canonical/sitemap/OG. Defaults to the auto-assigned Vercel domain. |
+| `NEXT_PUBLIC_CANONICAL_URL` | both | The one true host, when both are public. |
+| `DEPLOY_TARGET` | Pages workflow only | Set to `gh-pages` to mount under `/portfolio`. Never set on Vercel. |
 
 ### Regenerating the social preview image
 
