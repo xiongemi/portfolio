@@ -83,3 +83,35 @@ a:hover {
 svg {
   display: block;
 }
+
+/* Page entrance. Replaces the `animate-in fade-in slide-in-from-bottom-4`
+   classes, which came from tailwindcss-animate — a plugin this project never
+   had installed, so they rendered nothing. */
+@utility fade-up {
+  animation: fade-up 0.7s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(0.75rem);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* biome-ignore-start lint/complexity/noImportantStyles: a reduced-motion override
+   has to beat every animation declaration on the page, including Tailwind's. */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  ::before,
+  ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+/* biome-ignore-end lint/complexity/noImportantStyles: end of reduced-motion block */

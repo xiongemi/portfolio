@@ -13,7 +13,7 @@
     }
   },
   "files": {
-    "includes": ["**", "!**/.next", "!**/out", "!**/node_modules", "!**/dist"]
+    "includes": ["**", "!**/.next", "!**/out", "!**/node_modules", "!**/dist", "!next-env.d.ts"]
   },
   "css": {
     "parser": {

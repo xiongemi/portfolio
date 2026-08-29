@@ -2,7 +2,7 @@
 
 export default function ResumePage() {
   return (
-    <div className="p-2 md:p-12 font-sans max-w-4xl mx-auto animate-in fade-in slide-in-from-bottom-4 duration-1000">
+    <div className="p-2 md:p-12 font-sans max-w-4xl mx-auto fade-up">
       {/* Header */}
       <header className="border-b border-white/10 pb-8 mb-10">
         <h1 className="text-4xl md:text-6xl font-bold bg-gradient-to-r from-blue-500 to-cyan-400 bg-clip-text text-transparent mb-4">

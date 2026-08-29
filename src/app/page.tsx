@@ -1,5 +1,6 @@
 'use client';
 
+import Link from 'next/link';
 import { useMemo, useRef } from 'react';
 import { JsonField } from '../components/JsonField';
 import { useWindowSize } from '../lib/useWindowSize';
@@ -13,7 +14,8 @@ export default function Home() {
   }, [height]);
 
   return (
-    <div className="md:p-8 font-mono text-lg md:text-xl leading-relaxed animate-in fade-in duration-700">
+    <div className="md:p-8 font-mono text-lg md:text-xl leading-relaxed fade-up">
+      <h1 className="sr-only">Emily Xiong — Software Engineer in Toronto</h1>
       <div className="flex">
         <div className="text-gray-500 dark:text-gray-600 select-none text-right mr-6 border-r border-black/10 dark:border-white/5 pr-4 hidden sm:block">
           {Array.from({ length: lineCount }, (_, i) => i + 1).map((i) => (
@@ -29,6 +31,17 @@ export default function Home() {
             <JsonField fieldName="name">Emily Xiong 📇</JsonField>
             <JsonField fieldName="location">Toronto, Canada 📍</JsonField>
             <JsonField fieldName="title">Software Engineer 👩‍💻</JsonField>
+            <JsonField fieldName="stack">React · React Native · TypeScript ⚛️</JsonField>
+            <JsonField fieldName="shipped">
+              <Link
+                href="/projects"
+                className="underline decoration-blue-500/30 hover:decoration-blue-500 transition-all"
+              >
+                10 iOS apps on the App Store
+              </Link>{' '}
+              📱
+            </JsonField>
+            <JsonField fieldName="maintained">Nx core maintainer, 2021–2025 🛠️</JsonField>
             <JsonField fieldName="description">
               <>
                 I&apos;m a frontend developer based in Toronto who loves building with React and

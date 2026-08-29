@@ -1,6 +1,6 @@
 'use client';
 
-import { createContext, type ReactNode, useContext, useState } from 'react';
+import { createContext, type ReactNode, useCallback, useContext, useEffect, useState } from 'react';
 
 type Theme = 'light' | 'dark';
 
@@ -11,12 +11,35 @@ interface ThemeContextType {
 
 const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 
-export const ThemeProvider = ({ children }: { children: ReactNode }) => {
-  const [theme, setTheme] = useState<Theme>('dark');
+const STORAGE_KEY = 'theme';
 
-  const toggleTheme = () => {
-    setTheme((prevTheme) => (prevTheme === 'dark' ? 'light' : 'dark'));
-  };
+/**
+ * Reads whatever the pre-paint script in the document head already decided, so
+ * React starts from the theme that is actually on screen rather than re-deciding
+ * it and causing a flash.
+ */
+function initialTheme(): Theme {
+  if (typeof document === 'undefined') return 'dark';
+  return document.documentElement.classList.contains('dark') ? 'dark' : 'light';
+}
+
+export const ThemeProvider = ({ children }: { children: ReactNode }) => {
+  const [theme, setTheme] = useState<Theme>(initialTheme);
+
+  // The server rendered the default; sync to the client's real choice on mount.
+  useEffect(() => setTheme(initialTheme()), []);
+
+  const toggleTheme = useCallback(() => {
+    setTheme((previous) => {
+      const next = previous === 'dark' ? 'light' : 'dark';
+      try {
+        localStorage.setItem(STORAGE_KEY, next);
+      } catch {
+        // Private mode or blocked storage — the theme still applies for this visit.
+      }
+      return next;
+    });
+  }, []);
 
   return <ThemeContext.Provider value={{ theme, toggleTheme }}>{children}</ThemeContext.Provider>;
 };

@@ -1,48 +1,30 @@
-import { usePathname, useRouter } from 'next/navigation';
-import { useEffect, useState } from 'react';
+'use client';
+
+import { usePathname } from 'next/navigation';
 import FileTab from './FileTab';
 import { routes } from './routes';
 
+/** Longest matching internal route wins, so `/projects/x` still highlights `/projects`. */
+function activeUrl(pathname: string): string | undefined {
+  return routes
+    .filter((route) => !route.isExternal)
+    .filter(
+      (route) => route.url === pathname || (route.url !== '/' && pathname.startsWith(route.url)),
+    )
+    .sort((a, b) => b.url.length - a.url.length)[0]?.url;
+}
+
 export function EditorHeader() {
-  const [activeTab, setActiveTab] = useState<string | null>(null);
-  const router = useRouter();
   const pathname = usePathname();
-
-  useEffect(() => {
-    const matchingRoute = routes.find((route) => {
-      if (route.url === pathname) return true;
-      if (route.url !== '/' && pathname.startsWith(route.url)) return true;
-      return false;
-    });
-
-    if (matchingRoute) {
-      setActiveTab(matchingRoute.url);
-    }
-  }, [pathname]);
-
-  if (!activeTab) {
-    // Avoid rendering until we know the active tab on client
-    return null;
-  }
-
-  const handleTabClick = (url: string, isExternal?: boolean) => {
-    if (isExternal) {
-      window.open(url, '_blank');
-    } else {
-      setActiveTab(url);
-      router.push(url);
-    }
-  };
+  const active = activeUrl(pathname);
 
   return (
-    <nav className="flex border-y border-gray-200 dark:border-gray-900 flex-wrap w-full">
-      {routes.map((tab) => (
-        <FileTab
-          key={tab.url}
-          fileName={tab.name}
-          isActive={activeTab === tab.url}
-          onClick={() => handleTabClick(tab.url, tab.isExternal)}
-        />
+    <nav
+      aria-label="Site sections"
+      className="flex border-y border-gray-200 dark:border-gray-900 flex-wrap w-full"
+    >
+      {routes.map((route) => (
+        <FileTab key={route.url} {...route} isActive={route.url === active} />
       ))}
     </nav>
   );
