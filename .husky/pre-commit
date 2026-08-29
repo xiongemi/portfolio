@@ -1,0 +1,4 @@
+# Format + apply safe lint fixes to staged files only, then re-stage the fixes.
+# Blocks the commit if anything is left that Biome can't fix automatically.
+npx biome check --write --staged --no-errors-on-unmatched --files-ignore-unknown=true
+git update-index --again

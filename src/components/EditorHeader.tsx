@@ -35,19 +35,16 @@ export function EditorHeader() {
   };
 
   return (
-    <div
-      className="flex border-y border-gray-200 dark:border-gray-900 flex-wrap w-full"
-      role="navigation"
-    >
+    <nav className="flex border-y border-gray-200 dark:border-gray-900 flex-wrap w-full">
       {routes.map((tab) => (
         <FileTab
           key={tab.url}
           fileName={tab.name}
           isActive={activeTab === tab.url}
-          onClick={() => handleTabClick(tab.url, (tab as any).isExternal)}
+          onClick={() => handleTabClick(tab.url, tab.isExternal)}
         />
       ))}
-    </div>
+    </nav>
   );
 }
 

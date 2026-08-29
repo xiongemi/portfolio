@@ -20,6 +20,7 @@ export default function SharedLayout({ children }: { children: React.ReactNode }
             portfolio-editor v1.0
           </div>
           <button
+            type="button"
             onClick={toggleTheme}
             className="px-3 py-1 rounded-full bg-white/10 hover:bg-white/20 dark:bg-white/5 dark:hover:bg-white/10 text-xs font-semibold transition-colors"
           >

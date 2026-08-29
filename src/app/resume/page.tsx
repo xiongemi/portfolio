@@ -66,31 +66,31 @@ export default function ResumePage() {
         <div className="space-y-10">
           <ExperienceItem
             company="Nx.dev"
-            role="Senior Software Developer & Core Maintainer"
+            position="Senior Software Developer & Core Maintainer"
             period="2021 — 2025"
             description="Contributing to the core of Nx, a leading build system for monorepos. Focused on Next.js, React, and Vite integrations. Improved developer experience through automated migrations and cloud-based caching mechanisms."
           />
           <ExperienceItem
             company="RewardOps"
-            role="Senior Frontend Developer"
+            position="Senior Frontend Developer"
             period="2020 — 2021"
             description="Architected and built internal tools using React and TypeScript. Improved codebase quality through rigorous testing patterns and design system implementation."
           />
           <ExperienceItem
             company="IBM"
-            role="Frontend Web Consultant"
+            position="Frontend Web Consultant"
             period="2020"
             description="Led a major Angular migration for a large-scale enterprise client. Optimized application performance and mentored junior developers on modern frontend practices."
           />
           <ExperienceItem
             company="Rangle.io"
-            role="Frontend Developer"
+            position="Frontend Developer"
             period="2016 — 2020"
             description="Built high-impact digital products for global clients. Specialized in React and Angular ecosystems. Advocated for accessibility and web performance."
           />
           <ExperienceItem
             company="RBC"
-            role="Mobile Application Developer"
+            position="Mobile Application Developer"
             period="2013 — 2016"
             description="Developed native and hybrid mobile applications for banking services. Focused on security, performance, and cross-device compatibility."
           />
@@ -189,12 +189,12 @@ export default function ResumePage() {
 
 function ExperienceItem({
   company,
-  role,
+  position,
   period,
   description,
 }: {
   company: string;
-  role: string;
+  position: string;
   period: string;
   description: string;
 }) {
@@ -208,7 +208,7 @@ function ExperienceItem({
           {period}
         </span>
       </div>
-      <p className="text-lg text-gray-700 dark:text-gray-300 font-medium mb-3">{role}</p>
+      <p className="text-lg text-gray-700 dark:text-gray-300 font-medium mb-3">{position}</p>
       <p className="text-gray-600 dark:text-gray-400 leading-relaxed max-w-2xl">{description}</p>
     </div>
   );

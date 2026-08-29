@@ -11,6 +11,7 @@ export function FileTab({ fileName, isActive = false, onClick }: FileTabProps) {
 
   return (
     <button
+      type="button"
       className={`
         flex items-center space-x-2 px-6 py-4
         text-sm font-medium

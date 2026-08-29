@@ -1,4 +1,10 @@
-export const routes = [
+export interface Route {
+  name: string;
+  url: string;
+  isExternal?: boolean;
+}
+
+export const routes: Route[] = [
   { name: 'Home', url: '/' },
   {
     name: 'Resume',
