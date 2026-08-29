@@ -7,11 +7,7 @@ export const metadata = {
   description: "This is Emily Xiong's portfolio, a software engineer based in Toronto, Canada.",
 };
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className="dark">
       <body>

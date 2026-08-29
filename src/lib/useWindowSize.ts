@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useLayoutEffect, useCallback, RefObject } from 'react';
+import { type RefObject, useCallback, useLayoutEffect, useState } from 'react';
 
 interface WindowSize {
   width: number;

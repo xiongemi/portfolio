@@ -1,12 +1,12 @@
 'use client';
 
-import React, { useMemo, useRef } from 'react';
+import { useMemo, useRef } from 'react';
 import { JsonField } from '../components/JsonField';
 import { useWindowSize } from '../lib/useWindowSize';
 
 export default function Home() {
   const contentRef = useRef<HTMLDivElement>(null);
-  const { width, height } = useWindowSize(contentRef);
+  const { height } = useWindowSize(contentRef);
   const lineCount = useMemo(() => {
     if (!height) return 0;
     return Math.floor((height || 800) / 32);

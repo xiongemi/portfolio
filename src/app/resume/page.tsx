@@ -1,7 +1,5 @@
 'use client';
 
-import React from 'react';
-
 export default function ResumePage() {
   return (
     <div className="p-2 md:p-12 font-sans max-w-4xl mx-auto animate-in fade-in slide-in-from-bottom-4 duration-1000">
@@ -194,7 +192,12 @@ function ExperienceItem({
   role,
   period,
   description,
-}: { company: string; role: string; period: string; description: string }) {
+}: {
+  company: string;
+  role: string;
+  period: string;
+  description: string;
+}) {
   return (
     <div className="group">
       <div className="flex flex-col md:flex-row md:items-baseline justify-between mb-2">

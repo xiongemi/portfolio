@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useEffect, ReactNode } from 'react';
+import { type ReactNode, useEffect } from 'react';
 import { ThemeProvider, useTheme } from '../context/ThemeContext';
 
 function ThemeClassHandler({ children }: { children: ReactNode }) {

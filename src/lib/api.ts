@@ -1,5 +1,5 @@
-import { join } from 'path';
-import { readFileSync, readdirSync } from 'fs';
+import { readdirSync, readFileSync } from 'node:fs';
+import { join } from 'node:path';
 import matter from 'gray-matter';
 
 const postsDirectory = join(process.cwd(), '_posts');
@@ -17,7 +17,7 @@ export type Post = {
 export function getPostSlugs() {
   try {
     return readdirSync(postsDirectory);
-  } catch (error) {
+  } catch {
     return [];
   }
 }
@@ -38,7 +38,7 @@ export function getPostBySlug(slug: string): Post | null {
       author: data.author,
       coverImage: data.coverImage,
     };
-  } catch (error) {
+  } catch {
     return null;
   }
 }

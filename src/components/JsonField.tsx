@@ -1,4 +1,4 @@
-import { ReactNode } from 'react';
+import type { ReactNode } from 'react';
 
 interface JsonFieldProps {
   fieldName: string;
@@ -10,7 +10,7 @@ interface JsonFieldProps {
 export function JsonField({ fieldName, children, isLast = false, className = '' }: JsonFieldProps) {
   return (
     <div
-      className={`ml-4 py-0.5 group transition-all duration-200 hover:bg-white/5 rounded pl-10 -indent-8 pr-2 -mx-2 ${className}`}
+      className={`ml-4 py-0.5 group transition-all duration-200 hover:bg-white/5 rounded-sm pl-10 -indent-8 pr-2 -mx-2 ${className}`}
     >
       <span className="text-blue-600 dark:text-cyan-400 font-medium">&quot;{fieldName}&quot;</span>
       <span className="text-gray-600 dark:text-gray-500 mx-1">:</span>

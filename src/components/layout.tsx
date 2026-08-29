@@ -1,14 +1,10 @@
 'use client';
 
-import React from 'react';
+import type React from 'react';
 import { useTheme } from '../context/ThemeContext';
 import EditorHeader from './EditorHeader';
 
-export default function SharedLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function SharedLayout({ children }: { children: React.ReactNode }) {
   const { theme, toggleTheme } = useTheme();
 
   return (
@@ -16,9 +12,9 @@ export default function SharedLayout({
       <div className="glass shadow-2xl rounded-2xl overflow-hidden w-full lg:w-4/5 xl:w-2/3 transition-all duration-500 hover:shadow-blue-500/10">
         <div className="bg-white/10 dark:bg-black/20 px-6 py-4 flex items-center space-x-2 justify-between border-b border-white/10">
           <div className="flex items-center space-x-2">
-            <div className="w-3 h-3 bg-red-500 rounded-full shadow-inner"></div>
-            <div className="w-3 h-3 bg-yellow-500 rounded-full shadow-inner"></div>
-            <div className="w-3 h-3 bg-green-500 rounded-full shadow-inner"></div>
+            <div className="w-3 h-3 bg-red-500 rounded-full inset-shadow-sm"></div>
+            <div className="w-3 h-3 bg-yellow-500 rounded-full inset-shadow-sm"></div>
+            <div className="w-3 h-3 bg-green-500 rounded-full inset-shadow-sm"></div>
           </div>
           <div className="text-xs font-semibold text-gray-700 dark:text-gray-400 uppercase tracking-widest hidden sm:block">
             portfolio-editor v1.0
