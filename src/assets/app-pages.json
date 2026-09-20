@@ -1,0 +1,282 @@
+{
+  "developer": {
+    "legalName": "Hang Xiong",
+    "displayName": "Emily Xiong",
+    "email": "xiongemi@gmail.com",
+    "location": "Ontario, Canada",
+    "governingLaw": "the Province of Ontario and the federal laws of Canada that apply there"
+  },
+  "lastUpdated": "2026-09-20",
+  "apps": {
+    "mend-breakup": {
+      "headline": "A no-contact companion that does not shame you for slipping",
+      "summary": "Mend is a 90-day no-contact tracker for the weeks after a breakup. Most breakup apps run on toxic positivity or streaks that reset to zero. Mend keeps every entry on your device and treats a slip as data rather than failure.",
+      "audience": "For anyone going no-contact after a breakup who wants an honest, private record of how it is actually going.",
+      "features": [
+        {
+          "title": "Ninety days, one at a time",
+          "body": "Follow a 90-day no-contact goal without a counter that punishes you for a bad night."
+        },
+        {
+          "title": "A slip is data, not a reset",
+          "body": "Log the times you reached out and read the pattern, instead of starting again from zero."
+        },
+        {
+          "title": "Private by design",
+          "body": "Entries are stored on your device. There is no account to create and nothing to sync."
+        }
+      ],
+      "faq": [
+        {
+          "q": "Does anything I write leave my phone?",
+          "a": "Your entries are kept on the device itself. There is no account and no copy on a server."
+        },
+        {
+          "q": "Is Mend a substitute for therapy?",
+          "a": "No. It is a self-help tool for tracking your own progress. If you are struggling, please speak to a qualified professional."
+        }
+      ],
+      "disclaimer": "Mend is a self-help tool. It is not therapy, counselling, or a mental-health service, and it does not provide medical advice. If you are in crisis, contact your local emergency number or a crisis line in your country."
+    },
+    "job-tracker-util": {
+      "headline": "Track a job search without it becoming a second job",
+      "summary": "Job Tracker Util keeps every application in one list. Add a role in seconds, update its status when something moves, and get on with your day. Nothing is uploaded, because there is nowhere for it to go.",
+      "audience": "For anyone running a job search across more roles than they can keep in their head.",
+      "features": [
+        {
+          "title": "Add a role in seconds",
+          "body": "Enough detail to be useful, few enough fields that logging an application is never a chore."
+        },
+        {
+          "title": "Status, updated when it changes",
+          "body": "Move an application along as you hear back, and see where everything stands at a glance."
+        },
+        {
+          "title": "Your search stays yours",
+          "body": "Applications live on the device. No sign-in, no server, no career history in somebody else's cloud."
+        }
+      ],
+      "faq": [
+        {
+          "q": "Is my job search data uploaded anywhere?",
+          "a": "No. Applications are stored on your device only."
+        },
+        {
+          "q": "Does the app apply to jobs for me?",
+          "a": "No. It is a record-keeping tool. You apply, it remembers."
+        }
+      ],
+      "disclaimer": "Job Tracker Util is a personal record-keeping tool. It is not affiliated with any job board, recruiter, or employer, and it does not submit applications on your behalf."
+    },
+    "dementia-daily-memory-test": {
+      "headline": "Two-minute memory exercises, made to feel good to finish",
+      "summary": "Short, calm memory exercises for people living with dementia and the people caring for them. No timers and no score to lose, so a session ends on an encouraging note rather than a clinical one.",
+      "audience": "For people living with memory loss, and for the family members and caregivers sitting beside them.",
+      "features": [
+        {
+          "title": "Two minutes, start to finish",
+          "body": "Short enough to complete in one sitting, on whatever schedule suits the day."
+        },
+        {
+          "title": "Calm and encouraging by design",
+          "body": "No countdown timers, no streaks, and no score that can be lost."
+        },
+        {
+          "title": "Alone or together",
+          "body": "Built to work independently, and to work just as well with a caregiver alongside."
+        }
+      ],
+      "faq": [
+        {
+          "q": "Does this diagnose dementia?",
+          "a": "No. It is an exercise app, not a screening or diagnostic tool. Talk to a doctor about any concern with memory."
+        },
+        {
+          "q": "Is it on Android?",
+          "a": "Yes. Daily Memory Test is available on both the App Store and Google Play."
+        }
+      ],
+      "disclaimer": "Daily Memory Test is not a medical device. It does not diagnose, treat, monitor, or screen for dementia or any other condition, and it is not a substitute for advice from a qualified healthcare professional."
+    },
+    "canada-citizen-test": {
+      "headline": "Bilingual practice for the Canadian citizenship test",
+      "summary": "Multiple-choice practice over the material covered by the Canadian citizenship test, fully bilingual in English and Chinese so the concepts land, not just the vocabulary. Built for immigrants preparing for the exam without paying for a prep course.",
+      "audience": "For permanent residents preparing for the Canadian citizenship test, especially Chinese-speaking newcomers.",
+      "features": [
+        {
+          "title": "English and Chinese, side by side",
+          "body": "Every question reads in both languages, so an unfamiliar word never costs you the point."
+        },
+        {
+          "title": "Practise as often as you like",
+          "body": "Work through the question bank at your own pace, as many times as you want."
+        },
+        {
+          "title": "Free, and no account needed",
+          "body": "No course fee, no sign-up, and no personal details to hand over."
+        }
+      ],
+      "faq": [
+        {
+          "q": "Is this the official test?",
+          "a": "No. It is an independent study aid. Always confirm current requirements and study material with Immigration, Refugees and Citizenship Canada."
+        },
+        {
+          "q": "Are these the real exam questions?",
+          "a": "No. They are practice questions written to cover the same material as the official study guide."
+        }
+      ],
+      "disclaimer": "Canada Citizen Test is an independent study aid. It is not affiliated with, endorsed by, or connected to Immigration, Refugees and Citizenship Canada or the Government of Canada."
+    },
+    "australian-citizen-test": {
+      "headline": "Bilingual practice for the Australian citizenship test",
+      "summary": "The same bilingual approach applied to Australia's exam: multiple-choice practice over the official material, in English and Chinese, for people preparing for the citizenship test without a prep course.",
+      "audience": "For permanent residents preparing for the Australian citizenship test, especially Chinese-speaking newcomers.",
+      "features": [
+        {
+          "title": "English and Chinese, side by side",
+          "body": "Every question reads in both languages, so the concept is what is being tested, not your vocabulary."
+        },
+        {
+          "title": "Practice over the official material",
+          "body": "Multiple-choice questions covering the subjects the citizenship test draws on."
+        },
+        {
+          "title": "Free, and no account needed",
+          "body": "No course fee, no sign-up, and no personal details to hand over."
+        }
+      ],
+      "faq": [
+        {
+          "q": "Is this the official test?",
+          "a": "No. It is an independent study aid. Always confirm current requirements and study material with the Department of Home Affairs."
+        },
+        {
+          "q": "Are these the real exam questions?",
+          "a": "No. They are practice questions written to cover the same material as the official resource book."
+        }
+      ],
+      "disclaimer": "Australian Citizen Test is an independent study aid. It is not affiliated with, endorsed by, or connected to the Department of Home Affairs or the Australian Government."
+    },
+    "life-in-uk-quiz": {
+      "headline": "A study companion for the Life in the UK test",
+      "summary": "Practice covering the official Life in the UK handbook, with question banks in English, Chinese, and Hindi for people sitting the British citizenship or settlement exam.",
+      "audience": "For anyone preparing for the Life in the UK test as part of a citizenship or settlement application.",
+      "features": [
+        {
+          "title": "Follows the official handbook",
+          "body": "Questions are organised around the material in the Life in the UK handbook."
+        },
+        {
+          "title": "Three languages",
+          "body": "Question banks in English, Chinese, and Hindi, so you can study in the language you think in."
+        },
+        {
+          "title": "Free, and no account needed",
+          "body": "No course fee, no sign-up, and no personal details to hand over."
+        }
+      ],
+      "faq": [
+        {
+          "q": "Is this the official test?",
+          "a": "No. It is an independent study aid. Always confirm current requirements and study material with the UK Home Office."
+        },
+        {
+          "q": "Are these the real exam questions?",
+          "a": "No. They are practice questions written to cover the same material as the official handbook."
+        }
+      ],
+      "disclaimer": "Life in UK Quiz is an independent study aid. It is not affiliated with, endorsed by, or connected to the UK Home Office or the Government of the United Kingdom."
+    },
+    "ccse-quiz": {
+      "headline": "Mock exams for the Spanish CCSE test, with every answer explained",
+      "summary": "Realistic CCSE simulations plus a written explanation for each answer, so a wrong pick teaches something. The interface is trilingual: Spanish, English, and Chinese.",
+      "audience": "For applicants preparing for the CCSE nationality test, in Spanish or in a language they are more comfortable studying in.",
+      "features": [
+        {
+          "title": "Full mock exams",
+          "body": "Sit a simulation shaped like the real thing rather than loose flashcards."
+        },
+        {
+          "title": "Every answer explained",
+          "body": "Each question comes with a written explanation, so a wrong answer is worth something."
+        },
+        {
+          "title": "Spanish, English, and Chinese",
+          "body": "Study in Spanish or fall back to English or Chinese when a question turns on a word rather than a fact."
+        }
+      ],
+      "faq": [
+        {
+          "q": "Is this the official CCSE exam?",
+          "a": "No. It is an independent study aid. Always confirm current requirements and study material with the Instituto Cervantes."
+        },
+        {
+          "q": "Are these the real exam questions?",
+          "a": "No. They are practice questions written to cover the same material as the official exam."
+        }
+      ],
+      "disclaimer": "CCSE Quiz is an independent study aid. It is not affiliated with, endorsed by, or connected to the Instituto Cervantes or any Spanish government body."
+    },
+    "tcf-tef-canada-practice-tests": {
+      "headline": "French proficiency drills for the TCF and TEF exams",
+      "summary": "Practice tests for people sitting the Test de Connaissance du Français or the Test d'Évaluation de Français, whether for Canadian or French immigration, university admission, or their own goals. No signup.",
+      "audience": "For candidates preparing for a TCF or TEF sitting, including Canadian immigration applicants.",
+      "features": [
+        {
+          "title": "Both exams in one app",
+          "body": "Drills for the TCF and the TEF, rather than a separate app for each."
+        },
+        {
+          "title": "No signup",
+          "body": "Open it and start practising. There is no account and nothing to verify."
+        },
+        {
+          "title": "iPhone and Android",
+          "body": "Available free on both the App Store and Google Play."
+        }
+      ],
+      "faq": [
+        {
+          "q": "Is this an official TCF or TEF product?",
+          "a": "No. It is an independent practice app. Confirm exam formats and registration with the official examining bodies."
+        },
+        {
+          "q": "Will it score me the way the real exam does?",
+          "a": "No. Practice results are for your own preparation and are not an official level or score."
+        }
+      ],
+      "disclaimer": "TCF / TEF Practice Tests is an independent study aid. It is not affiliated with, endorsed by, or connected to France Éducation international, the CCI Paris Île-de-France, or any immigration authority."
+    },
+    "cpa-exam-quiz": {
+      "headline": "Under-two-minute daily drills for the CPA exam",
+      "summary": "Short practice sets across the CPA exam areas, sized to be finished on a commute. Built for people studying around a full-time job rather than in long evening blocks.",
+      "audience": "For CPA candidates fitting study around work.",
+      "features": [
+        {
+          "title": "Under two minutes",
+          "body": "A drill is short enough to finish between other things, so study happens on the days it otherwise would not."
+        },
+        {
+          "title": "Across the exam areas",
+          "body": "Practice spans the sections of the exam rather than one narrow topic."
+        },
+        {
+          "title": "Free, and no account needed",
+          "body": "No subscription, no sign-up, and no personal details to hand over."
+        }
+      ],
+      "faq": [
+        {
+          "q": "Is this an official CPA preparation course?",
+          "a": "No. It is an independent practice app and is not a substitute for a full review course."
+        },
+        {
+          "q": "Are these the real exam questions?",
+          "a": "No. They are practice questions covering the same subject areas."
+        }
+      ],
+      "disclaimer": "CPA Exam Quiz is an independent study aid. It is not affiliated with, endorsed by, or connected to the AICPA, NASBA, or any state board of accountancy."
+    }
+  }
+}

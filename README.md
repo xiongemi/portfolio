@@ -95,5 +95,11 @@ copy `out/opengraph-image` to `public/og.png`, and move the file back.
 | --- | --- |
 | `src/assets/apps.json` | Published iOS apps shown on `/projects` |
 | `src/assets/projects.json` | Open-source repos shown on `/projects` |
+| `src/assets/app-pages.json` | Copy for each app's overview / support / terms page, plus the developer details and the date stamped on the terms |
 | `src/components/routes.tsx` | Editor tabs / site navigation |
 | `public/apps/` | App icons, 256px, pulled from the App Store |
+
+Each app in `apps.json` needs a matching entry in `app-pages.json`, keyed by
+`slug`: the App Store listing points at `/projects/<slug>` (marketing) and
+`/projects/<slug>/support`, and the review guidelines want the terms reachable,
+so all three are prerendered per app.

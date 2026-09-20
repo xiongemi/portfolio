@@ -21,7 +21,7 @@ export function EditorHeader() {
   return (
     <nav
       aria-label="Site sections"
-      className="flex border-y border-gray-200 dark:border-gray-900 flex-wrap w-full"
+      className="flex flex-wrap w-full border-y border-black/10 dark:border-white/10"
     >
       {routes.map((route) => (
         <FileTab key={route.url} {...route} isActive={route.url === active} />

@@ -1,7 +1,23 @@
 import type { Metadata, Viewport } from 'next';
+import { Inter, JetBrains_Mono } from 'next/font/google';
 import './global.css';
 import SharedLayout from '../components/layout';
-import ThemeWrapper from '../components/ThemeWrapper';
+
+// global.css names "Inter" and "JetBrains Mono" in its font stacks; without these
+// loaders nothing ever fetched them and every page fell back to the system UI font.
+// next/font self-hosts both at build time, so there is no layout shift and no
+// request to Google from the browser.
+const inter = Inter({
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-inter',
+});
+
+const jetBrainsMono = JetBrains_Mono({
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-jetbrains-mono',
+});
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'http://localhost:3000';
 /** Where search engines should be pointed — see NEXT_PUBLIC_CANONICAL_URL in next.config.js. */
@@ -15,7 +31,7 @@ const ogAlt = 'Emily Xiong — Software Engineer in Toronto';
 
 const description =
   'Emily Xiong is a software engineer in Toronto building with React and React Native. ' +
-  'Core maintainer of Nx from 2021 to 2025, and the solo developer behind ten free iOS apps.';
+  'Core maintainer of Nx from 2021 to 2025, and the solo developer behind nine free iOS apps.';
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
@@ -70,15 +86,17 @@ const NO_FLASH_THEME = `try{document.documentElement.classList.toggle('dark',loc
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className="dark" suppressHydrationWarning>
+    <html
+      lang="en"
+      className={`dark ${inter.variable} ${jetBrainsMono.variable}`}
+      suppressHydrationWarning
+    >
       <head>
         {/** biome-ignore lint/security/noDangerouslySetInnerHtml: static string, must run pre-paint to avoid a theme flash */}
         <script dangerouslySetInnerHTML={{ __html: NO_FLASH_THEME }} />
       </head>
       <body>
-        <ThemeWrapper>
-          <SharedLayout>{children}</SharedLayout>
-        </ThemeWrapper>
+        <SharedLayout>{children}</SharedLayout>
       </body>
     </html>
   );

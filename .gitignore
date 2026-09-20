@@ -7,6 +7,8 @@ out-tsc
 .next
 out
 
+*.tsbuildinfo
+
 # dependencies
 node_modules
 

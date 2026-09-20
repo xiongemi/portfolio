@@ -7,18 +7,22 @@ const FILE_ICONS: Record<string, string> = {
   md: '📝',
 };
 
+// The focus ring is inset: the card that wraps the tab strip is `overflow-hidden`,
+// so the global outward offset would be clipped on the first and last tab. Only
+// the offset is overridden — the colour stays the site-wide `--focus-ring`.
 const BASE_CLASSES = `
   flex items-center gap-2 px-4 sm:px-6 py-4
   text-sm font-mono no-underline
   cursor-pointer select-none
-  border-r border-white/10
+  border-r border-black/10 dark:border-white/10
+  focus-visible:-outline-offset-2
 `;
 
 const ACTIVE_CLASSES =
-  'text-blue-500 bg-white/5 dark:bg-white/10 border-b-2 border-blue-500 pb-[calc(1rem-2px)]';
+  'text-blue-600 dark:text-blue-400 bg-black/5 dark:bg-white/10 border-b-2 border-b-blue-500 pb-[calc(1rem-2px)]';
 
 const INACTIVE_CLASSES =
-  'text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200 hover:bg-white/5 transition-all duration-200';
+  'text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-200 hover:bg-black/5 dark:hover:bg-white/5 transition-colors duration-200';
 
 export function FileTab({
   fileName,
@@ -47,13 +51,16 @@ export function FileTab({
     </>
   );
 
+  // The accessible name has to contain the visible text (WCAG 2.5.3, Label in Name),
+  // so a voice-control user saying "about.json" still activates the tab — the plain
+  // name is appended for context rather than replacing the file name.
   if (isExternal) {
     return (
       <a
         href={url}
         target="_blank"
         rel="noopener noreferrer"
-        aria-label={`${name} (opens in a new tab)`}
+        aria-label={`${fileName} — ${name} (opens in a new tab)`}
         className={className}
       >
         {label}
@@ -64,7 +71,7 @@ export function FileTab({
   return (
     <Link
       href={url}
-      aria-label={name}
+      aria-label={`${fileName} — ${name}`}
       aria-current={isActive ? 'page' : undefined}
       className={className}
     >
