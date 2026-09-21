@@ -51,7 +51,7 @@ export default async function AppSupportPage({ params }: { params: Promise<{ slu
   const content = getAppPageContent(slug);
   if (!app || !content) notFound();
 
-  const faq = [...sharedFaq(app), ...content.faq];
+  const faq = [...sharedFaq(app, content), ...content.faq];
 
   return (
     <AppDocShell
@@ -105,6 +105,11 @@ export default async function AppSupportPage({ params }: { params: Promise<{ slu
       </section>
 
       <DocSection title="Store listings">
+        {app.status === 'unreleased' && (
+          <p className="font-mono text-xs text-gray-600 dark:text-gray-400">
+            Not on a store yet — {app.name} is awaiting its first release.
+          </p>
+        )}
         <p className="flex flex-wrap gap-x-6 gap-y-1 font-mono text-xs">
           {Object.entries(app.stores).map(([store, url]) => {
             const storeLabel = STORE_LABELS[store as keyof typeof STORE_LABELS];

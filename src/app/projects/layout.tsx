@@ -8,7 +8,7 @@ const canonicalUrl =
 export const metadata: Metadata = {
   title: 'Projects',
   description:
-    'Nine free iOS apps shipped solo — citizenship and language exam prep, and local-first ' +
+    'Nine free apps shipped solo on iOS and Android — citizenship and language exam prep, and ' +
     'utilities that keep your data on your device — plus open-source work and Nx maintenance.',
   alternates: { canonical: `${canonicalUrl}/projects` },
 };

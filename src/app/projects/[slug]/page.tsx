@@ -44,6 +44,8 @@ export default async function AppMarketingPage({ params }: { params: Promise<{ s
   const content = getAppPageContent(slug);
   if (!app || !content) notFound();
 
+  const unreleased = app.status === 'unreleased';
+
   const facts = [
     { k: 'price', v: app.price },
     { k: 'version', v: app.version },
@@ -82,6 +84,12 @@ export default async function AppMarketingPage({ params }: { params: Promise<{ s
 
       <section className="mb-10">
         <h2 className={`${SECTION_HEADING} mb-4`}>Download</h2>
+        {unreleased && (
+          <p className="text-sm text-gray-700 dark:text-gray-400">
+            {app.name} has not been released yet. This page is live so the store listing has
+            somewhere to point while the app is in review.
+          </p>
+        )}
         <p className="flex flex-wrap gap-3">
           {Object.entries(app.stores).map(([store, url]) => {
             const storeLabel = STORE_LABELS[store as keyof typeof STORE_LABELS];
@@ -114,8 +122,14 @@ export default async function AppMarketingPage({ params }: { params: Promise<{ s
 
       <DocSection title="Release">
         <p className="font-mono text-sm text-gray-700 dark:text-gray-400">
-          Released <time dateTime={app.released}>{formatDate(app.released)}</time>, last updated{' '}
-          <time dateTime={app.updated}>{formatDate(app.updated)}</time>.
+          {app.released && app.updated ? (
+            <>
+              Released <time dateTime={app.released}>{formatDate(app.released)}</time>, last updated{' '}
+              <time dateTime={app.updated}>{formatDate(app.updated)}</time>.
+            </>
+          ) : (
+            <>Awaiting first release. Version {app.version} is the build in submission.</>
+          )}
         </p>
       </DocSection>
 

@@ -4,7 +4,14 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useMemo, useState } from 'react';
 import ossData from '../../assets/projects.json';
-import { appStoreDeveloperUrl, apps, playDeveloperUrl, STORE_LABELS } from '../../lib/apps';
+import {
+  androidApps,
+  appStoreDeveloperUrl,
+  apps,
+  playDeveloperUrl,
+  publishedApps,
+  STORE_LABELS,
+} from '../../lib/apps';
 import {
   CARD,
   LINK,
@@ -23,7 +30,7 @@ const BASE_PATH = process.env.NEXT_PUBLIC_BASE_PATH ?? '';
 const ALL = 'All';
 const CATEGORIES = [ALL, ...Array.from(new Set(apps.map((a) => a.category)))];
 
-const androidCount = apps.filter((a) => 'android' in a.stores).length;
+const androidCount = androidApps.length;
 
 // Dates in apps.json are plain ISO days, which parse as UTC midnight. Formatting
 // them in the viewer's zone shifts anything dated the 1st back into the previous
@@ -60,7 +67,7 @@ export default function ProjectsPage() {
             <br />
             {' * '}
           </span>
-          {apps.length} apps on the App Store, {androidCount} of them also on Google Play.
+          {publishedApps.length} apps on the App Store, {androidCount} of them also on Google Play.
           <br />
           <span aria-hidden="true" className="text-green-700 dark:text-emerald-400">
             {' * '}
@@ -80,7 +87,12 @@ export default function ProjectsPage() {
           <span aria-hidden="true" className="text-green-700 dark:text-emerald-400">
             {' * '}
           </span>
-          The rest are local-first utilities that keep your data on your phone.
+          The rest are local-first utilities that keep your data on your phone,
+          <br />
+          <span aria-hidden="true" className="text-green-700 dark:text-emerald-400">
+            {' * '}
+          </span>
+          plus whatever is still in review.
           <br />
           <span aria-hidden="true" className="text-green-700 dark:text-emerald-400">
             {' */'}
@@ -91,7 +103,7 @@ export default function ProjectsPage() {
       {/* Status bar — quick facts */}
       <dl className="grid grid-cols-2 md:grid-cols-4 gap-px mb-12 font-mono text-center bg-black/10 dark:bg-white/10 border border-black/10 dark:border-white/10 rounded-lg overflow-hidden">
         {[
-          { k: 'apps shipped', v: String(apps.length) },
+          { k: 'apps shipped', v: String(publishedApps.length) },
           { k: 'also on Android', v: String(androidCount) },
           { k: 'price, every one', v: 'Free' },
           { k: 'account required', v: 'None' },
@@ -178,12 +190,16 @@ export default function ProjectsPage() {
                   </span>
                   <span>v{app.version}</span>
                   <span aria-hidden="true">·</span>
-                  <span>
-                    updated{' '}
-                    <time dateTime={app.updated}>
-                      {monthFormatter.format(new Date(app.updated))}
-                    </time>
-                  </span>
+                  {app.updated ? (
+                    <span>
+                      updated{' '}
+                      <time dateTime={app.updated}>
+                        {monthFormatter.format(new Date(app.updated))}
+                      </time>
+                    </span>
+                  ) : (
+                    <span className="text-blue-600 dark:text-cyan-400">in review</span>
+                  )}
                 </p>
                 <p className="flex flex-wrap gap-x-4 gap-y-1 mt-3 pt-3 border-t border-black/10 dark:border-white/10 font-mono text-xs">
                   <Link

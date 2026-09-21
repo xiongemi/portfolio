@@ -2,11 +2,12 @@
 
 import Link from 'next/link';
 import { useRef } from 'react';
-import appsData from '../assets/apps.json';
 import { JsonField } from '../components/JsonField';
+import { androidApps, publishedApps } from '../lib/apps';
 import { useElementHeight } from '../lib/useElementHeight';
 
-const appCount = appsData.apps.length;
+const appCount = publishedApps.length;
+const androidCount = androidApps.length;
 
 /** Matches the `h-8` rows the gutter renders. */
 const LINE_HEIGHT_PX = 32;
@@ -52,18 +53,19 @@ export default function Home() {
             <JsonField fieldName="name">Emily Xiong 📇</JsonField>
             <JsonField fieldName="location">Toronto, Canada 📍</JsonField>
             <JsonField fieldName="title">Software Engineer 👩‍💻</JsonField>
-            <JsonField fieldName="stack">React · React Native · TypeScript ⚛️</JsonField>
+            <JsonField fieldName="stack">React · React Native · Expo · TypeScript ⚛️</JsonField>
             <JsonField fieldName="shipped">
               <Link href="/projects" className={LINK_CLASSES}>
-                {appCount} iOS apps on the App Store
+                {appCount} apps on the App Store, {androidCount} also on Google Play
               </Link>{' '}
               📱
             </JsonField>
             <JsonField fieldName="maintained">Nx core maintainer, 2021–2025 🛠️</JsonField>
             <JsonField fieldName="description">
-              I&apos;m a frontend developer based in Toronto who loves building with React and React
-              Native. I speak at the occasional meetup, and enjoy sharing things I&rsquo;ve learned
-              (usually the hard way). This portfolio is my little corner of the internet.
+              I&apos;m a software developer based in Toronto who loves building with React and React
+              Native. I write code and stories, speak at the occasional meetup, and enjoy sharing
+              things I&rsquo;ve learned (usually the hard way). This portfolio is my little corner
+              of the internet.
             </JsonField>
             <JsonField fieldName="email">
               <a href="mailto:xiongemi@gmail.com" className={LINK_CLASSES}>

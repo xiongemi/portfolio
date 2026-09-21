@@ -30,8 +30,9 @@ const ogImage = `${canonicalUrl}/og.png`;
 const ogAlt = 'Emily Xiong — Software Engineer in Toronto';
 
 const description =
-  'Emily Xiong is a software engineer in Toronto building with React and React Native. ' +
-  'Core maintainer of Nx from 2021 to 2025, and the solo developer behind nine free iOS apps.';
+  'Emily Xiong is a software developer in Toronto who loves building with React, React Native, ' +
+  'and Expo, and writes code and stories. Core maintainer of Nx from 2021 to 2025, and the solo ' +
+  'developer behind nine free apps on the App Store and Google Play.';
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
@@ -49,9 +50,11 @@ export const metadata: Metadata = {
     'Toronto',
     'React',
     'React Native',
+    'Expo',
     'Nx',
     'TypeScript',
     'iOS developer',
+    'Android developer',
   ],
   alternates: { canonical: canonicalUrl },
   icons: { icon: `${basePath}/favicon.ico` },

@@ -8,6 +8,182 @@
   },
   "lastUpdated": "2026-09-20",
   "apps": {
+    "brain-dump": {
+      "headline": "Say it once, and let it sort itself out",
+      "summary": "BrainDump lets you capture unstructured notes by typing or by speaking, and can use AI to turn them into journal summaries, mood tags, and task lists. Notes can be saved on your device without an account; an account is required for anything that leaves your device — syncing, AI processing, and shared notebooks.",
+      "audience": "For anyone who thinks faster than they can organise, and would rather empty their head first and tidy it later.",
+      "features": [
+        {
+          "title": "Type it or say it",
+          "body": "Dictate a note or write it. Voice recognition runs on your own device, and it is free and unlimited on every tier."
+        },
+        {
+          "title": "AI does the tidying",
+          "body": "Turn a pile of notes into a daily journal summary, mood tags, and an extracted task list."
+        },
+        {
+          "title": "Shared notebooks",
+          "body": "Invite other people into a notebook when something is worth keeping together rather than alone."
+        }
+      ],
+      "faq": [
+        {
+          "q": "How much does it cost?",
+          "a": "Writing, saving, and dictating notes are free and unlimited. The free tier is supported by advertising and includes a limited number of free AI summaries. Premium removes the ads and the summary limit, and adds notebook invitations and a larger watchlist."
+        },
+        {
+          "q": "Do I need an account?",
+          "a": "Not to write notes — those can be saved on the device on their own. An account is needed for anything that leaves the device: syncing, AI processing, and shared notebooks."
+        },
+        {
+          "q": "How do I cancel my subscription?",
+          "a": "Manage it in your Apple App Store or Google Play account settings. Subscriptions are billed by the store, not by us."
+        },
+        {
+          "q": "How do I export or delete my data?",
+          "a": "Open Settings, then \"Export account data\" for a JSON copy, or \"Delete account\" to permanently remove everything."
+        },
+        {
+          "q": "The AI didn't work.",
+          "a": "AI processing is a premium feature, with a few free trial runs. Check your internet connection and try again from the Today screen."
+        }
+      ],
+      "useCommonFaq": false,
+      "disclaimer": "BrainDump is not a medical, mental-health, legal, or financial service. AI-generated output may be inaccurate or incomplete — review it before relying on it.",
+      "termsSections": [
+        {
+          "title": "Who we are",
+          "paragraphs": [
+            "BrainDump is provided by Emily Xiong, a sole trader based in Ontario, Canada (\"we\", \"us\"). You can reach us at xiongemi@gmail.com."
+          ]
+        },
+        {
+          "title": "Eligibility",
+          "paragraphs": [
+            "You must be at least 13 years old to use the app, or older where your country sets a higher minimum age for consenting to online services. The app is not directed at children."
+          ]
+        },
+        {
+          "title": "The service",
+          "paragraphs": [
+            "BrainDump lets you capture unstructured notes by typing or by speaking, and can use AI to turn them into journal summaries, mood tags, and task lists. The service is provided \"as is\" without warranties of any kind. AI-generated output may be inaccurate or incomplete — review it before relying on it. BrainDump is not a medical, mental-health, legal, or financial service.",
+            "Notes can be saved on your device without an account. An account is required for anything that leaves your device — syncing, AI processing, and shared notebooks."
+          ]
+        },
+        {
+          "title": "Your account",
+          "paragraphs": [
+            "You are responsible for activity under your account and for the content you submit. Do not use the app for unlawful purposes or to submit content you do not have the right to submit."
+          ]
+        },
+        {
+          "title": "Your content",
+          "paragraphs": [
+            "You keep ownership of everything you write. You grant us only the permission needed to operate the service for you: to store your content, transmit it to the providers listed in our privacy policy, and display it back to you and to anyone you have deliberately shared it with. We do not use your content to train AI models."
+          ]
+        },
+        {
+          "title": "Shared notebooks",
+          "paragraphs": [
+            "A notebook can be shared with other people by invitation. You should treat anything placed in a shared notebook as visible to every member of that notebook."
+          ],
+          "bullets": [
+            "Members can read every note in a notebook, and can add their own.",
+            "Only a note's author can edit or delete that note.",
+            "The notebook owner can remove members or delete the notebook. Deleting a notebook does not delete the notes inside it; they become unfiled for their authors.",
+            "You are responsible for what you place in a shared notebook and for who you invite. Anyone holding a valid invite link can join until that link is revoked.",
+            "Creating a notebook is free. Inviting other people to one is a Premium feature."
+          ]
+        },
+        {
+          "title": "Watched pages",
+          "paragraphs": [
+            "You can ask the app to watch a public web page — typically an annual event's own website — for signs that new dates have been announced. If you do:"
+          ],
+          "bullets": [
+            "Our servers will retrieve that page on a recurring schedule that you choose, until you remove it from your watchlist.",
+            "Only pages that are publicly reachable can be watched. Some sites block automated readers; those cannot be watched and the app will say so.",
+            "When a page appears to have changed, its visible text may be sent to our AI provider to read dates out of it.",
+            "Add only pages you have a legitimate reason to monitor, and do not use this feature in a way that breaches a site's own terms.",
+            "Detected dates are a convenience, not a guarantee. Confirm them with the organiser before relying on them."
+          ]
+        },
+        {
+          "title": "Links you save",
+          "paragraphs": [
+            "When you save a note containing a web address, our servers may retrieve that page to show you a preview of it — its title, description, and image. Only the address you saved is used."
+          ]
+        },
+        {
+          "title": "Calendar access",
+          "paragraphs": [
+            "If you choose to add a detected event to your calendar, the app asks your device for calendar permission and writes a single event. It does not read, alter, or transmit your existing calendar entries. You can withdraw the permission at any time in your device settings."
+          ]
+        },
+        {
+          "title": "Subscriptions",
+          "bullets": [
+            "BrainDump Premium is offered as a monthly or annual auto-renewing subscription.",
+            "Payment is charged to your Apple App Store or Google Play account at confirmation of purchase.",
+            "Subscriptions renew automatically unless cancelled at least 24 hours before the end of the current period. Manage or cancel in your App Store / Play Store account settings.",
+            "Prices are shown in the app before purchase and may vary by region."
+          ]
+        },
+        {
+          "title": "Free tier and advertising",
+          "paragraphs": [
+            "The free tier is supported by advertisements and includes a limited number of free AI summaries. Writing and saving notes, and dictating them with your voice, are free and unlimited on every tier — voice recognition runs on your own device.",
+            "Premium adds:"
+          ],
+          "bullets": [
+            "Unlimited AI summaries, task extraction, and mood tracking, once your free summaries are used up.",
+            "No advertisements.",
+            "The ability to invite other people to a shared notebook.",
+            "A larger watchlist."
+          ]
+        },
+        {
+          "title": "Refunds",
+          "paragraphs": [
+            "Purchases are processed by Apple or Google, not by us, and refunds are handled under their policies. Request a refund through your App Store or Google Play account. Where consumer law in your country grants you a right of withdrawal, that right still applies."
+          ]
+        },
+        {
+          "title": "Termination",
+          "paragraphs": [
+            "You may stop using the app and delete your account at any time from Settings. Deleting your account removes your entries, tasks, saved links, notebooks, and watchlist from our servers. We may suspend or terminate access for violations of these terms."
+          ]
+        },
+        {
+          "title": "Limitation of liability",
+          "paragraphs": [
+            "To the maximum extent permitted by law, we are not liable for any indirect, incidental, or consequential damages arising from your use of the app. Nothing in these terms limits liability that cannot be limited under the law that applies to you, including your statutory rights as a consumer."
+          ]
+        },
+        {
+          "title": "Apple",
+          "paragraphs": [
+            "If you obtained the app from the Apple App Store: these terms are between you and us, not Apple. Apple is not responsible for the app or its content and has no obligation to provide support or maintenance for it. Apple and its subsidiaries are third-party beneficiaries of these terms and may enforce them against you."
+          ]
+        },
+        {
+          "title": "Governing law",
+          "paragraphs": [
+            "These terms are governed by the laws of the Province of Ontario and the federal laws of Canada that apply there, without regard to conflict-of-laws rules. If you are a consumer resident elsewhere, you keep the protection of any mandatory consumer law of your own country, and may bring proceedings in your own courts where that law allows."
+          ]
+        },
+        {
+          "title": "Changes",
+          "paragraphs": [
+            "We may update these terms. If a change is material we will ask you to accept the updated terms in the app before you continue to use it. Otherwise, continued use after changes constitutes acceptance."
+          ]
+        },
+        {
+          "title": "Contact",
+          "paragraphs": ["Email xiongemi@gmail.com."]
+        }
+      ]
+    },
     "mend-breakup": {
       "headline": "A no-contact companion that does not shame you for slipping",
       "summary": "Mend is a 90-day no-contact tracker for the weeks after a breakup. Most breakup apps run on toxic positivity or streaks that reset to zero. Mend keeps every entry on your device and treats a slip as data rather than failure.",

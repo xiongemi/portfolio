@@ -1,9 +1,9 @@
 import appPagesData from '../assets/app-pages.json';
 import appsData from '../assets/apps.json';
 
-/** Every app ships on iOS; only some are also on Android. */
+/** Published apps ship on iOS; only some are also on Android. Empty until release. */
 export interface AppStores {
-  ios: string;
+  ios?: string;
   android?: string;
 }
 
@@ -17,11 +17,14 @@ export interface App {
   category: string;
   theme: string;
   icon: string;
-  released: string;
-  updated: string;
+  /** Absent until the app is on a store. */
+  released?: string;
+  updated?: string;
   version: string;
   price: string;
   stores: AppStores;
+  /** Set on apps that need their store pages live before submission. */
+  status?: 'unreleased';
 }
 
 export interface AppFeature {
@@ -34,6 +37,13 @@ export interface AppFaqEntry {
   a: string;
 }
 
+/** A section of bespoke terms, for apps the generated template does not fit. */
+export interface TermsSection {
+  title: string;
+  paragraphs?: string[];
+  bullets?: string[];
+}
+
 /** Copy behind an app's marketing, support, and terms pages. */
 export interface AppPageContent {
   headline: string;
@@ -43,9 +53,17 @@ export interface AppPageContent {
   faq: AppFaqEntry[];
   /** App-specific "this is not the official thing" notice. */
   disclaimer: string;
+  /** False when the common free/no-account answers do not apply. */
+  useCommonFaq?: boolean;
+  /** When set, replaces the generated terms wholesale. */
+  termsSections?: TermsSection[];
 }
 
 export const apps = appsData.apps as App[];
+/** Apps that are actually on a store — what the /projects counters speak for. */
+export const publishedApps = apps.filter((app) => app.status !== 'unreleased');
+/** The subset also on Google Play. */
+export const androidApps = publishedApps.filter((app) => 'android' in app.stores);
 export const { appStoreDeveloperUrl, playDeveloperUrl } = appsData;
 
 /** Publisher named in the terms, and the governing law. */
@@ -70,8 +88,10 @@ export function appParams(): Array<{ slug: string }> {
   return apps.map((app) => ({ slug: app.slug }));
 }
 
-/** Answers true of every app; per-app entries are appended after these. */
-export function sharedFaq(app: App): AppFaqEntry[] {
+/** Answers true of every free, accountless app; skipped when `useCommonFaq` is false. */
+export function sharedFaq(app: App, content: AppPageContent): AppFaqEntry[] {
+  if (content.useCommonFaq === false) return [];
+
   return [
     {
       q: 'How much does it cost?',
