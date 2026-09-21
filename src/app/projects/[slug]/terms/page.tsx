@@ -122,8 +122,11 @@ export default async function AppTermsPage({ params }: { params: Promise<{ slug:
             </p>
             <p>
               The app collects limited technical and usage information, and may show advertising.
-              What is collected, and who processes it, is described in the privacy policy for the
-              app, published with its store listing.
+              What is collected, and who processes it, is set out in the{' '}
+              <Link href={`/projects/${app.slug}/privacy`} className={LINK}>
+                privacy policy
+              </Link>
+              .
             </p>
           </DocSection>
 

@@ -182,6 +182,85 @@
           "title": "Contact",
           "paragraphs": ["Email xiongemi@gmail.com."]
         }
+      ],
+      "privacySections": [
+        {
+          "title": "Who is responsible for your data",
+          "paragraphs": [
+            "BrainDump is provided by Emily Xiong, a sole trader based in Ontario, Canada, who is the controller of the personal data described here. Contact: xiongemi@gmail.com."
+          ]
+        },
+        {
+          "title": "Information we collect",
+          "bullets": [
+            "Account information — when you sign in with Google or Apple, our authentication provider (Clerk) gives us your user identifier and email address.",
+            "Content you create — the text and voice-dictated notes you write (\"brain dumps\"), the AI-generated journal summaries and mood tags, and the tasks you save. These are stored in our database (Supabase) and tied to your account.",
+            "Voice — voice notes are transcribed to text on your device using your operating system's speech recognition. We store the resulting text, not the audio.",
+            "Subscription status — whether you have an active premium subscription, managed through RevenueCat and the Apple App Store / Google Play.",
+            "Usage and diagnostics — anonymised analytics and crash reports (PostHog) to keep the app working, and advertising identifiers for free-tier ads (Google AdMob).",
+            "Session recordings — PostHog records anonymised replays of how the app is used (taps, screens, timing) to help us find bugs and confusing screens. All text you type and all images are masked before the recording leaves your device, so the content of your brain dumps is never captured."
+          ]
+        },
+        {
+          "title": "AI processing",
+          "paragraphs": [
+            "AI processing is optional and is never automatic. When you tap \"Process with AI\", the text of that brain dump is sent to our AI provider (DeepSeek) to generate a summary, a mood tag, and a task list. Only the text you submit for processing is sent — never your account details. Your use of this feature is also subject to the AI provider's own privacy terms."
+          ]
+        },
+        {
+          "title": "Links, watched pages, and your calendar",
+          "paragraphs": [
+            "Three features cause our servers to reach out to the wider internet on your behalf. None of them run unless you start them."
+          ],
+          "bullets": [
+            "Link previews — saving a note that contains a web address makes our server retrieve that page so it can show you a title, description, and image. Only the address you saved is sent.",
+            "Watched pages — a page you add to your watchlist is retrieved by our server on the schedule you choose, until you remove it. When it appears to have changed, its visible text is sent to our AI provider so dates can be read out of it.",
+            "Calendar — adding a detected event asks your device for calendar permission and writes one event locally. Your existing calendar is never read, altered, or transmitted, and the permission can be withdrawn in your device settings."
+          ]
+        },
+        {
+          "title": "How we use your information",
+          "bullets": [
+            "To provide the core features: storing your entries, generating summaries and tasks, and syncing them to your account.",
+            "To manage your subscription and, for free users, to show advertisements.",
+            "To diagnose crashes and understand aggregate usage so we can improve the app."
+          ]
+        },
+        {
+          "title": "Third-party services",
+          "paragraphs": ["The app relies on these providers, each with its own privacy policy:"],
+          "bullets": [
+            "Clerk (authentication)",
+            "Supabase (database and storage)",
+            "DeepSeek (AI processing)",
+            "RevenueCat (subscriptions)",
+            "Google AdMob (ads, free tier only)",
+            "PostHog (analytics, crash reporting, and masked session replay)"
+          ]
+        },
+        {
+          "title": "Data retention and deletion",
+          "paragraphs": [
+            "We keep your data for as long as your account exists. You can permanently delete your account and all associated entries and tasks at any time from Settings → Delete account.",
+            "You may also export a full copy of your data as a .json file from Settings → Export account data. To request deletion by email, contact us below."
+          ]
+        },
+        {
+          "title": "Children",
+          "paragraphs": [
+            "The app is not directed to children under 13, and we do not knowingly collect their data."
+          ]
+        },
+        {
+          "title": "Changes",
+          "paragraphs": [
+            "We may update this policy; continued use after changes constitutes acceptance. Material changes will be reflected on this page."
+          ]
+        },
+        {
+          "title": "Contact",
+          "paragraphs": ["Questions about privacy? Email xiongemi@gmail.com."]
+        }
       ]
     },
     "mend-breakup": {

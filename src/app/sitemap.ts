@@ -17,7 +17,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   // The three pages each App Store listing points at.
   const appPages = apps.flatMap((app) =>
-    ['', '/support', '/terms'].map((suffix) => ({
+    ['', '/support', '/terms', '/privacy'].map((suffix) => ({
       url: `${siteUrl}/projects/${app.slug}${suffix}`,
       changeFrequency: 'monthly' as const,
       priority: suffix === '' ? 0.7 : 0.5,

@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import type { App } from '../lib/apps';
+import type { App, PolicySection } from '../lib/apps';
 import { developer } from '../lib/apps';
 import {
   MUTED_MONO,
@@ -14,12 +14,13 @@ import {
 // `unoptimized` images need the basePath by hand — see projects/page.tsx.
 const BASE_PATH = process.env.NEXT_PUBLIC_BASE_PATH ?? '';
 
-type DocPage = 'marketing' | 'support' | 'terms';
+type DocPage = 'marketing' | 'support' | 'terms' | 'privacy';
 
 const TABS: Array<{ key: DocPage; label: string; href: (slug: string) => string }> = [
   { key: 'marketing', label: 'Overview', href: (slug) => `/projects/${slug}` },
   { key: 'support', label: 'Support', href: (slug) => `/projects/${slug}/support` },
   { key: 'terms', label: 'Terms', href: (slug) => `/projects/${slug}/terms` },
+  { key: 'privacy', label: 'Privacy', href: (slug) => `/projects/${slug}/privacy` },
 ];
 
 /** Shared chrome for the three pages an App Store listing points at. */
@@ -134,4 +135,22 @@ export function DocSection({ title, children }: { title: string; children: React
       </div>
     </section>
   );
+}
+
+/** Renders an app's bespoke policy sections. */
+export function PolicySections({ sections }: { sections: PolicySection[] }) {
+  return sections.map((section) => (
+    <DocSection key={section.title} title={section.title}>
+      {section.paragraphs?.map((text) => (
+        <p key={text}>{text}</p>
+      ))}
+      {section.bullets && (
+        <ul className="list-disc pl-5 space-y-1 marker:text-blue-500">
+          {section.bullets.map((item) => (
+            <li key={item}>{item}</li>
+          ))}
+        </ul>
+      )}
+    </DocSection>
+  ));
 }

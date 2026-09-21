@@ -37,8 +37,8 @@ export interface AppFaqEntry {
   a: string;
 }
 
-/** A section of bespoke terms, for apps the generated template does not fit. */
-export interface TermsSection {
+/** A titled section of a policy, for apps the generated template does not fit. */
+export interface PolicySection {
   title: string;
   paragraphs?: string[];
   bullets?: string[];
@@ -56,7 +56,9 @@ export interface AppPageContent {
   /** False when the common free/no-account answers do not apply. */
   useCommonFaq?: boolean;
   /** When set, replaces the generated terms wholesale. */
-  termsSections?: TermsSection[];
+  termsSections?: PolicySection[];
+  /** When set, replaces the generated privacy policy wholesale. */
+  privacySections?: PolicySection[];
 }
 
 export const apps = appsData.apps as App[];
