@@ -116,23 +116,6 @@
       }
     },
     {
-      "slug": "ccse-quiz",
-      "name": "CCSE Quiz",
-      "nameAlt": "西班牙入籍考试",
-      "tagline": "Mock exams for the Spanish CCSE nationality test, with every answer explained.",
-      "detail": "Realistic simulations plus a written explanation for each answer, so a wrong pick teaches something. Trilingual interface — Spanish, English, and Chinese.",
-      "category": "Education",
-      "theme": "newcomers",
-      "icon": "/apps/ccse-quiz.png",
-      "released": "2026-05-12",
-      "updated": "2026-05-12",
-      "version": "1.0",
-      "price": "Free",
-      "stores": {
-        "ios": "https://apps.apple.com/us/app/id6763702944"
-      }
-    },
-    {
       "slug": "tcf-tef-canada-practice-tests",
       "name": "TCF / TEF Practice Tests",
       "tagline": "French proficiency drills for the TCF and TEF exams. No signup.",

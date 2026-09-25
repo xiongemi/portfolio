@@ -443,36 +443,6 @@
       ],
       "disclaimer": "Life in UK Quiz is an independent study aid. It is not affiliated with, endorsed by, or connected to the UK Home Office or the Government of the United Kingdom."
     },
-    "ccse-quiz": {
-      "headline": "Mock exams for the Spanish CCSE test, with every answer explained",
-      "summary": "Realistic CCSE simulations plus a written explanation for each answer, so a wrong pick teaches something. The interface is trilingual: Spanish, English, and Chinese.",
-      "audience": "For applicants preparing for the CCSE nationality test, in Spanish or in a language they are more comfortable studying in.",
-      "features": [
-        {
-          "title": "Full mock exams",
-          "body": "Sit a simulation shaped like the real thing rather than loose flashcards."
-        },
-        {
-          "title": "Every answer explained",
-          "body": "Each question comes with a written explanation, so a wrong answer is worth something."
-        },
-        {
-          "title": "Spanish, English, and Chinese",
-          "body": "Study in Spanish or fall back to English or Chinese when a question turns on a word rather than a fact."
-        }
-      ],
-      "faq": [
-        {
-          "q": "Is this the official CCSE exam?",
-          "a": "No. It is an independent study aid. Always confirm current requirements and study material with the Instituto Cervantes."
-        },
-        {
-          "q": "Are these the real exam questions?",
-          "a": "No. They are practice questions written to cover the same material as the official exam."
-        }
-      ],
-      "disclaimer": "CCSE Quiz is an independent study aid. It is not affiliated with, endorsed by, or connected to the Instituto Cervantes or any Spanish government body."
-    },
     "tcf-tef-canada-practice-tests": {
       "headline": "French proficiency drills for the TCF and TEF exams",
       "summary": "Practice tests for people sitting the Test de Connaissance du Français or the Test d'Évaluation de Français, whether for Canadian or French immigration, university admission, or their own goals. No signup.",
