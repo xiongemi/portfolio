@@ -4,6 +4,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useMemo, useState } from 'react';
 import ossData from '../../assets/projects.json';
+import JsonLd from '../../components/JsonLd';
 import {
   androidApps,
   appStoreDeveloperUrl,
@@ -12,6 +13,7 @@ import {
   publishedApps,
   STORE_LABELS,
 } from '../../lib/apps';
+import { appListSchema } from '../../lib/structuredData';
 import {
   CARD,
   LINK,
@@ -31,6 +33,10 @@ const ALL = 'All';
 const CATEGORIES = [ALL, ...Array.from(new Set(apps.map((a) => a.category)))];
 
 const androidCount = androidApps.length;
+
+const LISTING_DESCRIPTION =
+  'Free iOS and Android apps built solo by Emily Xiong — citizenship and language exam prep, ' +
+  'and local-first utilities — plus open-source work and Nx maintenance.';
 
 // Dates in apps.json are plain ISO days, which parse as UTC midnight. Formatting
 // them in the viewer's zone shifts anything dated the 1st back into the previous
@@ -52,6 +58,7 @@ export default function ProjectsPage() {
 
   return (
     <div className="p-2 md:p-12 font-sans max-w-5xl mx-auto fade-up">
+      <JsonLd data={appListSchema(apps, LISTING_DESCRIPTION)} />
       {/* Header — editor breadcrumb + comment block */}
       <header className="border-b border-black/10 dark:border-white/10 pb-8 mb-10">
         <p aria-hidden="true" className="font-mono text-xs text-gray-600 dark:text-gray-400 mb-4">

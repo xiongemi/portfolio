@@ -3,8 +3,14 @@
 import Link from 'next/link';
 import { useRef } from 'react';
 import { JsonField } from '../components/JsonField';
+import JsonLd from '../components/JsonLd';
 import { androidApps, publishedApps } from '../lib/apps';
+import { homeSchema } from '../lib/structuredData';
 import { useElementHeight } from '../lib/useElementHeight';
+
+/** Mirrors the visible description field; used for the Person/WebSite schema. */
+const BIO =
+  "I'm a software developer based in Toronto who loves building with React and React Native. I write code and stories, speak at the occasional meetup, and enjoy sharing things I've learned (usually the hard way).";
 
 const appCount = publishedApps.length;
 const androidCount = androidApps.length;
@@ -25,6 +31,7 @@ export default function Home() {
 
   return (
     <div className="p-4 md:p-8 font-mono text-base sm:text-lg md:text-xl leading-relaxed fade-up">
+      <JsonLd data={homeSchema(BIO)} />
       <h1 className="sr-only">Emily Xiong — Software Engineer in Toronto</h1>
       {/* `items-start` matters: with the default `stretch`, the gutter's own height
           feeds back into the row height, which stretches the content column, which

@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import AppDocShell, { DocSection } from '../../../../components/AppDocShell';
+import JsonLd from '../../../../components/JsonLd';
 import {
   appParams,
   developer,
@@ -9,12 +10,9 @@ import {
   STORE_LABELS,
   sharedFaq,
 } from '../../../../lib/apps';
+import { absoluteUrl, pageMetadata } from '../../../../lib/seo';
+import { breadcrumbSchema, faqSchema } from '../../../../lib/structuredData';
 import { CARD, LINK, SECTION_HEADING } from '../../../../lib/styles';
-
-const canonicalUrl =
-  process.env.NEXT_PUBLIC_CANONICAL_URL ??
-  process.env.NEXT_PUBLIC_SITE_URL ??
-  'http://localhost:3000';
 
 export function generateStaticParams() {
   return appParams();
@@ -29,19 +27,11 @@ export async function generateMetadata({
   const app = getApp(slug);
   if (!app) return {};
 
-  const description = `Support for ${app.name} — how to report a bug, request a feature, and answers to common questions.`;
-
-  return {
+  return pageMetadata({
     title: `${app.name} Support`,
-    description,
-    alternates: { canonical: `${canonicalUrl}/projects/${slug}/support` },
-    openGraph: {
-      type: 'website',
-      title: `${app.name} Support`,
-      description,
-      url: `${canonicalUrl}/projects/${slug}/support`,
-    },
-  };
+    description: `Support for ${app.name} — how to report a bug, request a feature, and answers to common questions.`,
+    path: `/projects/${slug}/support`,
+  });
 }
 
 /** The support URL submitted with each App Store listing. */
@@ -52,6 +42,13 @@ export default async function AppSupportPage({ params }: { params: Promise<{ slu
   if (!app || !content) notFound();
 
   const faq = [...sharedFaq(app, content), ...content.faq];
+  const url = absoluteUrl(`/projects/${app.slug}/support`);
+  const breadcrumbs = breadcrumbSchema([
+    { name: 'Home', path: '/' },
+    { name: 'Projects', path: '/projects' },
+    { name: app.name, path: `/projects/${app.slug}` },
+    { name: 'Support', path: `/projects/${app.slug}/support` },
+  ]);
 
   return (
     <AppDocShell
@@ -61,6 +58,9 @@ export default async function AppSupportPage({ params }: { params: Promise<{ slu
       title={`${app.name} Support`}
       subtitle={`Something broken, missing, or confusing in ${app.name}? Email is the way to reach a human — one developer builds and maintains this app, and reads what arrives.`}
     >
+      <JsonLd data={faqSchema(url, faq)} />
+      <JsonLd data={breadcrumbs} />
+
       <DocSection title="Contact">
         <p>
           For help, a bug report, or a feature request, email{' '}

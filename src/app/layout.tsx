@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from 'next';
 import { Inter, JetBrains_Mono } from 'next/font/google';
 import './global.css';
 import SharedLayout from '../components/layout';
+import { CANONICAL_URL, OG_IMAGE, OG_IMAGE_ALT, SITE_URL } from '../lib/seo';
 
 // global.css names "Inter" and "JetBrains Mono" in its font stacks; without these
 // loaders nothing ever fetched them and every page fell back to the system UI font.
@@ -19,15 +20,14 @@ const jetBrainsMono = JetBrains_Mono({
   variable: '--font-jetbrains-mono',
 });
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'http://localhost:3000';
-/** Where search engines should be pointed — see NEXT_PUBLIC_CANONICAL_URL in next.config.js. */
-const canonicalUrl = process.env.NEXT_PUBLIC_CANONICAL_URL ?? siteUrl;
+const siteUrl = SITE_URL;
+const canonicalUrl = CANONICAL_URL;
 
 // Absolute, because a basePath-mounted site (GitHub Pages) resolves a leading-slash
 // path against the origin and would drop the /portfolio prefix.
 const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? '';
-const ogImage = `${canonicalUrl}/og.png`;
-const ogAlt = 'Emily Xiong — Software Engineer in Toronto';
+const ogImage = OG_IMAGE;
+const ogAlt = OG_IMAGE_ALT;
 
 const description =
   'Emily Xiong is a software developer in Toronto who loves building with React, React Native, ' +
@@ -58,7 +58,11 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: canonicalUrl },
   icons: { icon: `${basePath}/favicon.ico` },
-  robots: { index: true, follow: true },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: { index: true, follow: true, 'max-image-preview': 'large', 'max-snippet': -1 },
+  },
   openGraph: {
     type: 'profile',
     siteName: "Emily Xiong's Portfolio",

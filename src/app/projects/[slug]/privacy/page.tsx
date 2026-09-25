@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import AppDocShell, { DocSection, PolicySections } from '../../../../components/AppDocShell';
+import JsonLd from '../../../../components/JsonLd';
 import {
   appParams,
   developer,
@@ -10,12 +11,9 @@ import {
   getAppPageContent,
   legalLastUpdated,
 } from '../../../../lib/apps';
+import { pageMetadata } from '../../../../lib/seo';
+import { breadcrumbSchema } from '../../../../lib/structuredData';
 import { LINK, MUTED_MONO } from '../../../../lib/styles';
-
-const canonicalUrl =
-  process.env.NEXT_PUBLIC_CANONICAL_URL ??
-  process.env.NEXT_PUBLIC_SITE_URL ??
-  'http://localhost:3000';
 
 const ADMOB_POLICY = 'https://support.google.com/admob/answer/6128543?hl=en';
 
@@ -32,19 +30,11 @@ export async function generateMetadata({
   const app = getApp(slug);
   if (!app) return {};
 
-  const description = `How the ${app.name} mobile app handles your information.`;
-
-  return {
+  return pageMetadata({
     title: `${app.name} Privacy Policy`,
-    description,
-    alternates: { canonical: `${canonicalUrl}/projects/${slug}/privacy` },
-    openGraph: {
-      type: 'website',
-      title: `${app.name} Privacy Policy`,
-      description,
-      url: `${canonicalUrl}/projects/${slug}/privacy`,
-    },
-  };
+    description: `How the ${app.name} mobile app handles your information.`,
+    path: `/projects/${slug}/privacy`,
+  });
 }
 
 /** Privacy policy for a single app — the privacy URL each store listing requires. */
@@ -62,6 +52,15 @@ export default async function AppPrivacyPage({ params }: { params: Promise<{ slu
       title="Privacy Policy"
       subtitle={`How ${app.name} handles your information.`}
     >
+      <JsonLd
+        data={breadcrumbSchema([
+          { name: 'Home', path: '/' },
+          { name: 'Projects', path: '/projects' },
+          { name: app.name, path: `/projects/${app.slug}` },
+          { name: 'Privacy', path: `/projects/${app.slug}/privacy` },
+        ])}
+      />
+
       <p className={`${MUTED_MONO} mb-8`}>
         Last updated <time dateTime={legalLastUpdated}>{formatDate(legalLastUpdated)}</time>
       </p>

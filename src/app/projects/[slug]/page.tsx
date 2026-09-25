@@ -1,13 +1,11 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import AppDocShell, { DocSection } from '../../../components/AppDocShell';
+import JsonLd from '../../../components/JsonLd';
 import { appParams, formatDate, getApp, getAppPageContent, STORE_LABELS } from '../../../lib/apps';
+import { pageMetadata } from '../../../lib/seo';
+import { appSchema, breadcrumbSchema } from '../../../lib/structuredData';
 import { CARD, SECTION_HEADING } from '../../../lib/styles';
-
-const canonicalUrl =
-  process.env.NEXT_PUBLIC_CANONICAL_URL ??
-  process.env.NEXT_PUBLIC_SITE_URL ??
-  'http://localhost:3000';
 
 export function generateStaticParams() {
   return appParams();
@@ -22,19 +20,12 @@ export async function generateMetadata({
   const app = getApp(slug);
   if (!app) return {};
 
-  const url = `${canonicalUrl}/projects/${slug}`;
-
-  return {
+  return pageMetadata({
     title: app.name,
     description: app.tagline,
-    alternates: { canonical: url },
-    openGraph: {
-      type: 'website',
-      title: `${app.name} — ${app.tagline}`,
-      description: app.detail,
-      url,
-    },
-  };
+    path: `/projects/${slug}`,
+    ogTitle: `${app.name} — ${app.tagline}`,
+  });
 }
 
 /** The marketing URL submitted with each App Store listing. */
@@ -53,6 +44,12 @@ export default async function AppMarketingPage({ params }: { params: Promise<{ s
     { k: 'platforms', v: 'android' in app.stores ? 'iOS · Android' : 'iOS' },
   ];
 
+  const breadcrumbs = breadcrumbSchema([
+    { name: 'Home', path: '/' },
+    { name: 'Projects', path: '/projects' },
+    { name: app.name, path: `/projects/${app.slug}` },
+  ]);
+
   return (
     <AppDocShell
       app={app}
@@ -61,6 +58,9 @@ export default async function AppMarketingPage({ params }: { params: Promise<{ s
       title={app.name}
       subtitle={content.headline}
     >
+      <JsonLd data={appSchema(app, content.summary)} />
+      <JsonLd data={breadcrumbs} />
+
       <DocSection title="What it is">
         <p>{content.summary}</p>
         <p className="text-gray-700 dark:text-gray-400 italic">{content.audience}</p>
